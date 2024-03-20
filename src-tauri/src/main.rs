@@ -18,17 +18,31 @@ struct MuteDef {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct Settings {
-    notify: bool,
     interval: u64,
     dars_start_date: String,
     dars_end_date: String,
     mute_for: i32,
     mute_def: Vec<MuteDef>,
+    pick_random: bool,
+    skip_ids: Vec<String>
+}
+
+impl Default for Settings {
+    fn default() -> Self {
+        Settings {
+            interval: 10,
+            dars_start_date: String::new(),
+            dars_end_date: String::new(),
+            mute_for: 0,
+            mute_def: Vec::new(),
+            pick_random: false,
+            skip_ids: Vec::new(),
+        }
+    }
 }
 
 #[tauri::command]
 fn get_dars() -> String {
-    // serde_json::to_string_pretty(&fetch_dars_data()).expect("Ustadji: error parsing to JSON")
     let dars = {
         let file_path = "/Applications/iustadji-mac.app/Contents/Resources/dars.json";
         let file_content = fs::read_to_string(file_path).expect("Ustadji: error reading file");
@@ -36,6 +50,12 @@ fn get_dars() -> String {
             .expect("Ustadji: error serializing to JSON")
     };
     serde_json::to_string_pretty(&dars).expect("Ustadji: error parsing to JSON")
+}
+
+#[tauri::command]
+fn get_settings_str() -> String {
+    println!("{}", serde_json::to_string_pretty(&get_settings()).expect("Ustadji: error parsing to JSON"));
+    serde_json::to_string_pretty(&get_settings()).expect("Ustadji: error parsing to JSON")
 }
 
 #[tauri::command]
@@ -47,25 +67,7 @@ fn get_settings() -> Settings {
 
         if !Path::new(file_path).exists() {
             // If the file doesn't exist, create it with default settings
-            let default_settings = vec![Settings {
-                notify: true,
-                interval: 1,
-                dars_start_date: "01.01.2024".to_string(),
-                dars_end_date: "01.01.2025".to_string(),
-                mute_for: 30,
-                mute_def: vec![
-                    MuteDef {
-                        recur: "daily".to_string(),
-                        start: "10:00".to_string(),
-                        end: "11:00".to_string(),
-                    },
-                    MuteDef {
-                        recur: "daily".to_string(),
-                        start: "16:00".to_string(),
-                        end: "16:30".to_string(),
-                    },
-                ],
-            }];
+            let default_settings = vec![Settings::default()];
 
             // Serialize the default settings to JSON
             let default_settings_json = serde_json::to_string_pretty(&default_settings)
@@ -119,7 +121,7 @@ fn main() {
         .add_item(quit);
 
     let app = tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_dars, get_settings])
+        .invoke_handler(tauri::generate_handler![get_dars, get_settings_str])
         .on_window_event(|event| match event.event() {
             tauri::WindowEvent::CloseRequested { api, .. } => {
                 // #[cfg(not(target_os = "macos"))] {
@@ -184,8 +186,6 @@ fn fetch_dars_data() -> Vec<Dars> {
 }
 
 fn init_notification(app_config: String) {
-    // let settings = get_settings();
-    // Spawn a new thread to handle notifications
     thread::spawn(move || {
         let settings = get_settings();
         let all_dars = fetch_dars_data();
@@ -195,16 +195,6 @@ fn init_notification(app_config: String) {
         let mut file = File::create(file_path).unwrap();
         file.write_all(json_content.as_bytes())
             .expect("Failed to create settings file");
-        // if !Path::new(file_path).exists() {
-        //     let mut file = File::create(file_path).unwrap();
-        //     file.write_all(json_content.as_bytes()).expect("Failed to create settings file");
-        //     // fs::write("../public/dars.json", json_content).expect("Failed to create settings file");
-        // }
-        // Write the JSON content to the file
-        // let mut file = File::create("../public/dars.json")
-        //     .expect("Failed to create dars.json file");
-        // file.write_all(json_content.as_bytes())
-        //     .expect("Failed to write data to dars.json file");
         for dars in all_dars {
             for notification in dars.notifications {
                 // Shows a notification with the given title and body
@@ -219,5 +209,3 @@ fn init_notification(app_config: String) {
         }
     });
 }
-
-// Call this function to fetch dars data

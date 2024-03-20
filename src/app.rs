@@ -1,13 +1,11 @@
-use std::time::Duration;
-
 use chrono::{Local, NaiveDate};
 use leptos::*;
 use leptos_router::*;
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
-use thaw::{DatePicker, SignalWatch};
+use thaw::{Divider, TimePicker};
+use thaw::{DatePicker, InputNumber, SignalWatch, Switch};
 use wasm_bindgen::prelude::*;
-use thaw::mobile::*;
 
 #[wasm_bindgen]
 extern "C" {
@@ -34,18 +32,55 @@ struct Dars {
     notifications: Vec<NotificationData>,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct MuteDef {
+    recur: String,
+    start: String,
+    end: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct Settings {
+    interval: u64,
+    dars_start_date: String,
+    dars_end_date: String,
+    mute_for: i32,
+    mute_def: Vec<MuteDef>,
+    pick_random: bool,
+    skip_ids: Vec<String>,
+}
+
+impl Default for Settings {
+    fn default() -> Self {
+        Settings {
+            interval: 10,
+            dars_start_date: String::new(),
+            dars_end_date: String::new(),
+            mute_for: 0,
+            mute_def: Vec::new(),
+            pick_random: false,
+            skip_ids: Vec::new(),
+        }
+    }
+}
+
 #[derive(Copy, Clone)]
 struct DarsContext(ReadSignal<Vec<Dars>>, WriteSignal<Vec<Dars>>);
 
 #[derive(Copy, Clone)]
 struct AllDarsContext(ReadSignal<Vec<Dars>>, WriteSignal<Vec<Dars>>);
 
+#[derive(Copy, Clone)]
+struct SettingsContext(ReadSignal<Settings>, WriteSignal<Settings>);
+
 #[component]
 pub fn App() -> impl IntoView {
     let (all_dars, set_all_dars) = create_signal(vec![]);
     let (dars, set_dars) = create_signal(vec![]);
+    let (settings, set_settings) = create_signal(Settings::default());
     provide_context(DarsContext(dars, set_dars));
     provide_context(AllDarsContext(all_dars, set_all_dars));
+    provide_context(SettingsContext(settings, set_settings));
 
     let get_data = move || {
         spawn_local(async move {
@@ -54,11 +89,20 @@ pub fn App() -> impl IntoView {
             })
             .unwrap();
             // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-            let new_msg = invoke("get_dars", args).await.as_string().unwrap();
-            let data: Vec<Dars> = serde_json::from_str(&new_msg).unwrap();
+            let dars_str = invoke("get_dars", args).await.as_string().unwrap();
+            let data: Vec<Dars> = serde_json::from_str(&dars_str).unwrap();
             set_dars.set(data.clone());
             set_all_dars.set(data);
-        })
+        });
+        spawn_local(async move {
+            let args = to_value(&DarsArg {
+                date: "10.10.2023".to_string(),
+            })
+            .unwrap();
+            let sett_str = invoke("get_settings_str", args).await.as_string().unwrap();
+            let data: Settings = serde_json::from_str(&sett_str).unwrap();
+            set_settings.set(data);
+        });
     };
 
     get_data();
@@ -82,7 +126,7 @@ pub fn App() -> impl IntoView {
                         <Header/>
                     </div>
                     <div class="overflow-auto text-xs">
-                        <StaticList/>
+                        <DarsList/>
                     </div>
                 }/>
                 <Route
@@ -99,14 +143,51 @@ pub fn App() -> impl IntoView {
 
 #[component]
 fn Settings() -> impl IntoView {
+    let settings = use_context::<SettingsContext>().unwrap().0;
+
     view! {
         <div class="sticky top-0 bg-gray-100 p-3 text-sm">
             <div class="flex">
                 <p class="border text-center w-20 h-7 rounded-2xl font-bold bg-gray-800 text-white pt-1 mr-5">"Settings"</p>
             </div>
         </div>
-        <div class="overflow-auto text-sm">
-            "Settings----"
+        <div class="overflow-auto text-sm p-5">
+            <div class="flex-col">
+                <div class="flex items-center gap-2.5 mb-5">
+                    <div>Notification interval</div>
+                    <div><InputNumber value=settings.get().interval step=5/></div> min
+                </div>
+                <div class="flex items-center gap-2.5 mb-5">
+                    <p class="">Notify dars between:</p>
+                    <div class="flex">
+                        <p class="pr-2 pt-2">Start date</p>
+                        <DatePicker/>
+                    </div>
+                    <div class="flex">
+                        <p class="pr-2 pt-2">End date</p>
+                        <DatePicker/>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2.5 mb-5">
+                    <div>Notify random</div>
+                    <div><Switch value=settings.get().pick_random /></div>
+                </div>
+                <div class="flex items-center gap-2.5 mb-5">
+                    <div>Mute for next</div>
+                    <div><InputNumber value=settings.get().mute_for step=5/></div> min
+                </div>
+                <div class="font-bold">Mute daily</div>
+                <Divider class="m-2"/>
+                <div class="flex items-center gap-2.5 mb-5">
+                    from <div><TimePicker /></div> to <div><TimePicker /></div>
+                </div>
+                <div class="flex items-center gap-2.5 mb-5">
+                    from <div><TimePicker /></div> to <div><TimePicker /></div>
+                </div>
+                <div class="flex items-center gap-2.5 mb-5">
+                    from <div><TimePicker /></div> to <div><TimePicker /></div>
+                </div>
+            </div>
         </div>
     }
 }
@@ -138,8 +219,7 @@ fn Header() -> impl IntoView {
 }
 
 #[component]
-fn StaticList(
-) -> impl IntoView {
+fn DarsList() -> impl IntoView {
     let dars = use_context::<DarsContext>().unwrap().0;
 
     view! {
@@ -177,13 +257,13 @@ fn filter_dars(start: NaiveDate, end: NaiveDate) {
     let set_dars = use_context::<DarsContext>().unwrap().1;
 
     let filtered = all_dars
-            .get_untracked()
-            .iter()
-            .filter(|d| {
-                let dars_date = NaiveDate::parse_from_str(&d.date, "%d.%m.%Y").unwrap();
-                dars_date >= start && dars_date <= end
-            })
-            .cloned()
-            .collect::<Vec<_>>();
+        .get_untracked()
+        .iter()
+        .filter(|d| {
+            let dars_date = NaiveDate::parse_from_str(&d.date, "%d.%m.%Y").unwrap();
+            dars_date >= start && dars_date <= end
+        })
+        .cloned()
+        .collect::<Vec<_>>();
     set_dars.set(filtered);
 }
