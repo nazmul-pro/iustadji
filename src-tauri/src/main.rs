@@ -66,10 +66,10 @@ fn get_settings() -> Settings {
                     },
                 ],
             }];
-    
+
             // Serialize the default settings to JSON
-            let default_settings_json =
-                serde_json::to_string_pretty(&default_settings).expect("Failed to serialize default settings to JSON");
+            let default_settings_json = serde_json::to_string_pretty(&default_settings)
+                .expect("Failed to serialize default settings to JSON");
             // Create the settings file
             fs::write(file_path, default_settings_json).expect("Failed to create settings file");
         }
@@ -77,7 +77,10 @@ fn get_settings() -> Settings {
         let file_content = fs::read_to_string(file_path).expect("Ustadji: error reading file");
 
         serde_json::from_str::<Vec<Settings>>(&file_content)
-            .expect("Ustadji: error serializing to JSON").first().unwrap().clone()
+            .expect("Ustadji: error serializing to JSON")
+            .first()
+            .unwrap()
+            .clone()
     };
     settings
 }
@@ -100,13 +103,18 @@ struct Dars {
 fn main() {
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let open: CustomMenuItem = CustomMenuItem::new("open".to_string(), "Open");
-    let mute: CustomMenuItem = CustomMenuItem::new("mute".to_string(), "Mute");
-    let settings: CustomMenuItem = CustomMenuItem::new("settings".to_string(), "Settings");
+    let unmute: CustomMenuItem = CustomMenuItem::new("unmute".to_string(), "Unmute");
+    let mute_30: CustomMenuItem = CustomMenuItem::new("mute_30".to_string(), "Mute for 30 mins");
+    let mute_60: CustomMenuItem = CustomMenuItem::new("mute_60".to_string(), "Mute for 1 hr");
+    let mute_restart: CustomMenuItem = CustomMenuItem::new("mute_restart".to_string(), "Mute until restart");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(open)
-        .add_item(mute)
-        .add_item(settings)
+        .add_native_item(SystemTrayMenuItem::Separator)
+        .add_item(unmute)
+        .add_item(mute_30)
+        .add_item(mute_60)
+        .add_item(mute_restart)
         .add_native_item(SystemTrayMenuItem::Separator)
         .add_item(quit);
 
@@ -153,7 +161,7 @@ fn main() {
 fn fetch_dars_data() -> Vec<Dars> {
     loop {
         match reqwest::blocking::get(
-            "https://raw.githubusercontent.com/nazmul-pro/iustadji/main/dars.json",
+            "https://raw.githubusercontent.com/nazmul-pro/iustadji/data/dars.json",
         ) {
             Ok(response) => match response.text() {
                 Ok(body) => match serde_json::from_str::<Vec<Dars>>(&body) {
@@ -176,17 +184,17 @@ fn fetch_dars_data() -> Vec<Dars> {
 }
 
 fn init_notification(app_config: String) {
-    
     // let settings = get_settings();
     // Spawn a new thread to handle notifications
     thread::spawn(move || {
         let settings = get_settings();
         let all_dars = fetch_dars_data();
         let file_path = "/Applications/iustadji-mac.app/Contents/Resources/dars.json";
-        let json_content = serde_json::to_string_pretty(&all_dars)
-            .expect("Failed to serialize data to JSON");
+        let json_content =
+            serde_json::to_string_pretty(&all_dars).expect("Failed to serialize data to JSON");
         let mut file = File::create(file_path).unwrap();
-        file.write_all(json_content.as_bytes()).expect("Failed to create settings file");
+        file.write_all(json_content.as_bytes())
+            .expect("Failed to create settings file");
         // if !Path::new(file_path).exists() {
         //     let mut file = File::create(file_path).unwrap();
         //     file.write_all(json_content.as_bytes()).expect("Failed to create settings file");
@@ -206,7 +214,7 @@ fn init_notification(app_config: String) {
                     .show()
                     .unwrap();
 
-                thread::sleep(Duration::from_secs(settings.interval*60));
+                thread::sleep(Duration::from_secs(settings.interval * 60));
             }
         }
     });

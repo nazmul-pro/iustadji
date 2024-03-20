@@ -1,10 +1,13 @@
-use chrono::NaiveDate;
+use std::time::Duration;
+
+use chrono::{Local, NaiveDate};
 use leptos::*;
 use leptos_router::*;
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
-use thaw::DatePicker;
+use thaw::{DatePicker, SignalWatch};
 use wasm_bindgen::prelude::*;
+use thaw::mobile::*;
 
 #[wasm_bindgen]
 extern "C" {
@@ -31,8 +34,35 @@ struct Dars {
     notifications: Vec<NotificationData>,
 }
 
+#[derive(Copy, Clone)]
+struct DarsContext(ReadSignal<Vec<Dars>>, WriteSignal<Vec<Dars>>);
+
+#[derive(Copy, Clone)]
+struct AllDarsContext(ReadSignal<Vec<Dars>>, WriteSignal<Vec<Dars>>);
+
 #[component]
 pub fn App() -> impl IntoView {
+    let (all_dars, set_all_dars) = create_signal(vec![]);
+    let (dars, set_dars) = create_signal(vec![]);
+    provide_context(DarsContext(dars, set_dars));
+    provide_context(AllDarsContext(all_dars, set_all_dars));
+
+    let get_data = move || {
+        spawn_local(async move {
+            let args = to_value(&DarsArg {
+                date: "10.10.2023".to_string(),
+            })
+            .unwrap();
+            // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+            let new_msg = invoke("get_dars", args).await.as_string().unwrap();
+            let data: Vec<Dars> = serde_json::from_str(&new_msg).unwrap();
+            set_dars.set(data.clone());
+            set_all_dars.set(data);
+        })
+    };
+
+    get_data();
+
     view! {
         <Router>
             <div class="flex h-screen">
@@ -49,17 +79,7 @@ pub fn App() -> impl IntoView {
             <Routes>
                 <Route path="/" view=|| view! {
                     <div class="sticky top-0 bg-gray-100 p-3 text-xs">
-                        <div class="flex">
-                            <p class="border text-center w-16 h-7 rounded-2xl font-bold bg-gray-800 text-white pt-1 mr-5">"Dars"</p>
-                            <div class="flex pr-4">
-                                <p class="pr-2 pt-2">Start Date</p>
-                                <DatePicker/>
-                            </div>
-                            <div class="flex">
-                                <p class="pr-2 pt-2">End Date</p>
-                                <DatePicker/>
-                            </div>
-                        </div>
+                        <Header/>
                     </div>
                     <div class="overflow-auto text-xs">
                         <StaticList/>
@@ -92,25 +112,35 @@ fn Settings() -> impl IntoView {
 }
 
 #[component]
+fn Header() -> impl IntoView {
+    let start = create_rw_signal(Some(Local::now().date_naive()));
+    let end = create_rw_signal(Some(Local::now().date_naive()));
+    let _ = start.watch(move |_| {
+        filter_dars(start.get().unwrap(), end.get().unwrap());
+    });
+
+    let _ = end.watch(move |_| {
+        filter_dars(start.get().unwrap(), end.get().unwrap());
+    });
+    view! {
+        <div class="flex">
+            <p class="border text-center w-16 h-7 rounded-2xl font-bold bg-gray-800 text-white pt-1 mr-5">"Dars"</p>
+            <div class="flex pr-4">
+                <p class="pr-2 pt-2">Start Date</p>
+                <DatePicker value=start/>
+            </div>
+            <div class="flex">
+                <p class="pr-2 pt-2">End Date</p>
+                <DatePicker value=end/>
+            </div>
+        </div>
+    }
+}
+
+#[component]
 fn StaticList(
 ) -> impl IntoView {
-    // create counter signals that start at incrementing numbers
-    let (dars, set_dars) = create_signal(vec![]);
-    let get_data = move || {
-        spawn_local(async move {
-            let args = to_value(&DarsArg {
-                date: "10.10.2023".to_string(),
-            })
-            .unwrap();
-            // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-            let new_msg = invoke("get_dars", args).await.as_string().unwrap();
-            // let dars = serde_json::from_str::<_>(&new_msg).unwrap();
-            let data: Vec<Dars> = serde_json::from_str(&new_msg).unwrap();
-            set_dars.set(data);
-        })
-    };
-
-    get_data();
+    let dars = use_context::<DarsContext>().unwrap().0;
 
     view! {
         <For
@@ -140,4 +170,20 @@ fn format_date(date: &str) -> String {
 
     let formatted_date = date.format("%a, %-d %b %Y").to_string();
     formatted_date
+}
+
+fn filter_dars(start: NaiveDate, end: NaiveDate) {
+    let all_dars = use_context::<AllDarsContext>().unwrap().0;
+    let set_dars = use_context::<DarsContext>().unwrap().1;
+
+    let filtered = all_dars
+            .get_untracked()
+            .iter()
+            .filter(|d| {
+                let dars_date = NaiveDate::parse_from_str(&d.date, "%d.%m.%Y").unwrap();
+                dars_date >= start && dars_date <= end
+            })
+            .cloned()
+            .collect::<Vec<_>>();
+    set_dars.set(filtered);
 }
