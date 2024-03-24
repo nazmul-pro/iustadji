@@ -7,8 +7,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "iustadji-mac",
-    "version": "0.0.0"
+    "productName": "iUstadji",
+    "version": "0.0.1"
   },
   "tauri": {
     "systemTray": {
@@ -30,7 +30,7 @@
     },
     "windows": [
       {
-        "title": "iustadji-mac",
+        "title": "iUstadji",
         "width": 900,
         "height": 700
       }

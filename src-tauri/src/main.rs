@@ -1,13 +1,28 @@
+use chrono::{NaiveDate,Local};
 use reqwest;
 use serde::{Deserialize, Serialize};
-use std::fs;
 use std::path::Path;
-use std::{fs::File, io::Write};
+use std::sync::{Arc, Mutex};
+use std::fs;
 use std::{thread, time::Duration};
 use tauri::api::notification::Notification;
-use tauri::{
-    CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu, SystemTrayMenuItem,
+use tauri::{ CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
+    SystemTrayMenuItem,
 };
+use rand::seq::SliceRandom;
+
+#[macro_use]
+extern crate lazy_static;
+
+const DATA_URL: &str = "https://raw.githubusercontent.com/nazmul-pro/iustadji/data/dars.json";
+const DARS_FILE_PATH: &str = "/Applications/iustadji-mac.app/Contents/Resources/dars.json";
+const SETTINGS_FILE_PATH: &str = "/Applications/iustadji-mac.app/Contents/Resources/settings.json";
+
+lazy_static! {
+    static ref THREAD_IDS: Arc<Mutex<Vec<String>>> = Arc::new(Mutex::new(vec![]));
+    static ref NOTIFICATIONS: Arc<Mutex<Vec<NotificationData>>> = Arc::new(Mutex::new(vec![]));
+    static ref MUTE_FOR: Arc<Mutex<u64>> = Arc::new(Mutex::new(0));
+}
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct MuteDef {
@@ -18,21 +33,23 @@ struct MuteDef {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct Settings {
+    data_url: String,
     interval: u64,
     dars_start_date: String,
     dars_end_date: String,
     mute_for: i32,
     mute_def: Vec<MuteDef>,
     pick_random: bool,
-    skip_ids: Vec<String>
+    skip_ids: Vec<String>,
 }
 
 impl Default for Settings {
     fn default() -> Self {
         Settings {
+            data_url: DATA_URL.into(),
             interval: 10,
-            dars_start_date: String::new(),
-            dars_end_date: String::new(),
+            dars_start_date: String::from("01.01.2024"),
+            dars_end_date: String::from("31.12.2025"),
             mute_for: 0,
             mute_def: Vec::new(),
             pick_random: false,
@@ -41,29 +58,66 @@ impl Default for Settings {
     }
 }
 
+// Define the Notification struct
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct NotificationData {
+    id: i32,
+    title: String,
+    description: String,
+}
+
+// Define the Dars struct
+#[derive(Debug, Serialize, Deserialize)]
+struct Dars {
+    date: String,
+    notifications: Vec<NotificationData>,
+}
+
+impl Default for Dars {
+    fn default() -> Self {
+        Self {
+            date: "01.01.2024".to_string(),
+            notifications: vec![NotificationData {
+                id: 0,
+                title: "تسمية".to_string(),
+                description: "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ".to_string(),
+            }],
+        }
+    }
+}
+
+
 #[tauri::command]
 fn get_dars() -> String {
-    let dars = {
-        let file_path = "/Applications/iustadji-mac.app/Contents/Resources/dars.json";
-        let file_content = fs::read_to_string(file_path).expect("Ustadji: error reading file");
-        serde_json::from_str::<Vec<Dars>>(&file_content)
-            .expect("Ustadji: error serializing to JSON")
-    };
+    let dars = fetch_dars_data();
     serde_json::to_string_pretty(&dars).expect("Ustadji: error parsing to JSON")
 }
 
 #[tauri::command]
 fn get_settings_str() -> String {
-    println!("{}", serde_json::to_string_pretty(&get_settings()).expect("Ustadji: error parsing to JSON"));
     serde_json::to_string_pretty(&get_settings()).expect("Ustadji: error parsing to JSON")
+}
+#[tauri::command]
+fn set_settings_str(data: String) -> String {
+    if let Ok(setting) = serde_json::from_str::<Settings>(&data) {
+        if let Ok(settings_json) = serde_json::to_string_pretty(&vec![setting]) {
+            if let Err(err) = fs::write(SETTINGS_FILE_PATH, settings_json) {
+                return format!("Failed to write settings file: {}", err);
+            } else {
+                return String::from("Settings successfully updated");
+            }
+        } else {
+            return String::from("Failed to serialize default settings to JSON");
+        }
+    } else {
+        return String::from("Error parsing settings data");
+    }
 }
 
 #[tauri::command]
 fn get_settings() -> Settings {
     let settings = {
         let file_path = "/Applications/iustadji-mac.app/Contents/Resources/settings.json";
-
-        println!("Pathe {}", Path::new(file_path).exists());
 
         if !Path::new(file_path).exists() {
             // If the file doesn't exist, create it with default settings
@@ -87,28 +141,16 @@ fn get_settings() -> Settings {
     settings
 }
 
-// Define the Notification struct
-#[derive(Debug, Serialize, Deserialize)]
-struct NotificationData {
-    id: i32,
-    title: String,
-    description: String,
-}
-
-// Define the Dars struct
-#[derive(Debug, Serialize, Deserialize)]
-struct Dars {
-    date: String,
-    notifications: Vec<NotificationData>,
-}
-
 fn main() {
+    create_files();
+    fetch_dars_data();
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
     let open: CustomMenuItem = CustomMenuItem::new("open".to_string(), "Open");
     let unmute: CustomMenuItem = CustomMenuItem::new("unmute".to_string(), "Unmute");
     let mute_30: CustomMenuItem = CustomMenuItem::new("mute_30".to_string(), "Mute for 30 mins");
     let mute_60: CustomMenuItem = CustomMenuItem::new("mute_60".to_string(), "Mute for 1 hr");
-    let mute_restart: CustomMenuItem = CustomMenuItem::new("mute_restart".to_string(), "Mute until restart");
+    let mute_restart: CustomMenuItem =
+        CustomMenuItem::new("mute_restart".to_string(), "Mute until unmute/restart");
 
     let tray_menu = SystemTrayMenu::new()
         .add_item(open)
@@ -121,7 +163,7 @@ fn main() {
         .add_item(quit);
 
     let app = tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![get_dars, get_settings_str])
+        .invoke_handler(tauri::generate_handler![get_dars, get_settings_str, set_settings_str])
         .on_window_event(|event| match event.event() {
             tauri::WindowEvent::CloseRequested { api, .. } => {
                 // #[cfg(not(target_os = "macos"))] {
@@ -146,6 +188,18 @@ fn main() {
                     window.set_focus().unwrap();
                     window.show().unwrap();
                 }
+                "unmute" => {
+                    *MUTE_FOR.lock().unwrap() = 0; // change to real value self, below and sleep time
+                }
+                "mute_30" => {
+                    *MUTE_FOR.lock().unwrap() = 2;
+                }
+                "mute_60" => {
+                    *MUTE_FOR.lock().unwrap() = 3;
+                }
+                "mute_restart" => {
+                    *MUTE_FOR.lock().unwrap() = 1440; // 1d
+                }
                 _ => {}
             },
             _ => {}
@@ -154,20 +208,71 @@ fn main() {
         .expect("error while building tauri application");
     let app_config = app.config().tauri.bundle.identifier.clone();
 
+    populate_notifications();
+
     init_notification(app_config);
 
     // Run the app
     app.run(|_app_handle, _event| {});
 }
 
+fn populate_notifications() {
+    let all_dars = fetch_dars_data();
+    let settings = get_settings();
+    let mut rng = rand::thread_rng();
+    
+    for dars in all_dars {
+        if let Ok(start_date) = NaiveDate::parse_from_str(&settings.dars_start_date, "%d.%m.%Y") {
+            if let Ok(end_date) = NaiveDate::parse_from_str(&settings.dars_end_date, "%d.%m.%Y") {
+                let mut notifications = dars.notifications.clone();
+                
+                for notification in notifications {
+                    if let Ok(notification_date) = NaiveDate::parse_from_str(&dars.date, "%d.%m.%Y") {
+                        if notification_date >= start_date && notification_date <= end_date {
+                            NOTIFICATIONS.lock().unwrap().push(notification);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if settings.pick_random {
+        NOTIFICATIONS.lock().unwrap().shuffle(&mut rng);
+    }
+}
+
+fn create_files() {
+    if !Path::new(SETTINGS_FILE_PATH).exists() {
+        let default_settings = vec![Settings::default()];
+
+        let default_settings_json = serde_json::to_string_pretty(&default_settings)
+            .expect("Failed to serialize default settings to JSON");
+        fs::write(SETTINGS_FILE_PATH, default_settings_json)
+            .expect("Failed to create settings file");
+    }
+
+    if !Path::new(DARS_FILE_PATH).exists() {
+        let default_notif = vec![Dars::default()];
+
+        let default_notif_json = serde_json::to_string_pretty(&default_notif)
+            .expect("Failed to serialize default settings to JSON");
+        fs::write(DARS_FILE_PATH, default_notif_json).expect("Failed to create settings file");
+    }
+}
+
 fn fetch_dars_data() -> Vec<Dars> {
+    let settings = get_settings();
+    let mut tried = 0;
     loop {
+        tried += 1;
         match reqwest::blocking::get(
-            "https://raw.githubusercontent.com/nazmul-pro/iustadji/data/dars.json",
+            &settings.data_url,
         ) {
             Ok(response) => match response.text() {
                 Ok(body) => match serde_json::from_str::<Vec<Dars>>(&body) {
-                    Ok(all_dars) => return all_dars,
+                    Ok(all_dars) => {
+                        return all_dars;
+                    }
                     Err(err) => {
                         eprintln!("Failed to parse JSON: {}", err);
                     }
@@ -180,31 +285,62 @@ fn fetch_dars_data() -> Vec<Dars> {
                 eprintln!("Failed to fetch JSON: {}", err);
             }
         }
-        // Retry after 30 seconds
-        std::thread::sleep(Duration::from_secs(30));
+        if tried > 3 {
+            if let Ok(file_content) = fs::read_to_string(DARS_FILE_PATH) {
+                return serde_json::from_str::<Vec<Dars>>(&file_content).unwrap();
+            }
+        } else {
+            // Retry after 10 seconds
+            std::thread::sleep(Duration::from_secs(10));
+        }
     }
 }
 
 fn init_notification(app_config: String) {
+    let start_notif = Dars::default().notifications.first().unwrap().clone();
+    println!("{},  {}", start_notif.title, start_notif.description);
+
+    Notification::new(&app_config)
+        .title(start_notif.title)
+        .body(start_notif.description)
+        .show()
+        .unwrap();
+
     thread::spawn(move || {
+        let t_id = Local::now().to_string();
+        THREAD_IDS.lock().unwrap().push(t_id.clone());
+        println!("{}", THREAD_IDS.lock().unwrap().last().unwrap());
         let settings = get_settings();
-        let all_dars = fetch_dars_data();
-        let file_path = "/Applications/iustadji-mac.app/Contents/Resources/dars.json";
-        let json_content =
-            serde_json::to_string_pretty(&all_dars).expect("Failed to serialize data to JSON");
-        let mut file = File::create(file_path).unwrap();
-        file.write_all(json_content.as_bytes())
-            .expect("Failed to create settings file");
-        for dars in all_dars {
-            for notification in dars.notifications {
+        let mut count = NOTIFICATIONS.lock().unwrap().len();
+        for notification in NOTIFICATIONS.lock().unwrap().iter() {
+
+            if *THREAD_IDS.lock().unwrap().last().unwrap() != t_id {
+                break;
+            }
+
+            if settings.interval > *MUTE_FOR.lock().unwrap() {
                 // Shows a notification with the given title and body
                 Notification::new(&app_config)
                     .title(&notification.title)
                     .body(&notification.description)
                     .show()
                     .unwrap();
-
-                thread::sleep(Duration::from_secs(settings.interval * 60));
+                println!("mute for = {} interval = {}", *MUTE_FOR.lock().unwrap(), settings.interval);
+                thread::sleep(Duration::from_secs(settings.interval * 10));
+            } else {
+                let mute_for = *MUTE_FOR.lock().unwrap();
+                for _ in 0..mute_for {
+                    thread::sleep(Duration::from_secs(10));
+                    if *MUTE_FOR.lock().unwrap() == 0 {
+                        break;
+                    }
+                }
+                *MUTE_FOR.lock().unwrap() = 0;
+            };
+            
+            count = count - 1;
+            if count == 0 {
+                init_notification(app_config.clone());
             }
         }
     });

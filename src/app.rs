@@ -1,11 +1,16 @@
+use std::time::Duration;
+
 use chrono::{Local, NaiveDate};
+use leptos::logging::log;
 use leptos::*;
 use leptos_router::*;
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
-use thaw::{Divider, TimePicker};
+use thaw::mobile::{show_toast, ToastOptions};
+use thaw::{Button, ButtonColor, ButtonVariant, Divider, Input, TimePicker};
 use thaw::{DatePicker, InputNumber, SignalWatch, Switch};
 use wasm_bindgen::prelude::*;
+use web_sys::MouseEvent;
 
 #[wasm_bindgen]
 extern "C" {
@@ -16,6 +21,11 @@ extern "C" {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DarsArg {
     date: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct SettingsArg {
+    data: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -41,6 +51,7 @@ struct MuteDef {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct Settings {
+    data_url: String,
     interval: u64,
     dars_start_date: String,
     dars_end_date: String,
@@ -53,6 +64,7 @@ struct Settings {
 impl Default for Settings {
     fn default() -> Self {
         Settings {
+            data_url: "https://raw.githubusercontent.com/nazmul-pro/iustadji/data/dars.json".to_string(),
             interval: 10,
             dars_start_date: String::new(),
             dars_end_date: String::new(),
@@ -77,10 +89,8 @@ struct SettingsContext(ReadSignal<Settings>, WriteSignal<Settings>);
 pub fn App() -> impl IntoView {
     let (all_dars, set_all_dars) = create_signal(vec![]);
     let (dars, set_dars) = create_signal(vec![]);
-    let (settings, set_settings) = create_signal(Settings::default());
     provide_context(DarsContext(dars, set_dars));
     provide_context(AllDarsContext(all_dars, set_all_dars));
-    provide_context(SettingsContext(settings, set_settings));
 
     let get_data = move || {
         spawn_local(async move {
@@ -94,15 +104,7 @@ pub fn App() -> impl IntoView {
             set_dars.set(data.clone());
             set_all_dars.set(data);
         });
-        spawn_local(async move {
-            let args = to_value(&DarsArg {
-                date: "10.10.2023".to_string(),
-            })
-            .unwrap();
-            let sett_str = invoke("get_settings_str", args).await.as_string().unwrap();
-            let data: Settings = serde_json::from_str(&sett_str).unwrap();
-            set_settings.set(data);
-        });
+        
     };
 
     get_data();
@@ -143,7 +145,41 @@ pub fn App() -> impl IntoView {
 
 #[component]
 fn Settings() -> impl IntoView {
-    let settings = use_context::<SettingsContext>().unwrap().0;
+
+    let data_url = create_rw_signal(String::new());
+    let interval = create_rw_signal(1);
+    
+    let sd = NaiveDate::parse_from_str("01.01.2023", "%d.%m.%Y").unwrap();
+    let dars_start_date = create_rw_signal(Some(sd));
+
+    let ed = NaiveDate::parse_from_str("12.12.2025", "%d.%m.%Y").unwrap();
+    let dars_end_date = create_rw_signal(Some(ed));
+
+    let mute_for = create_rw_signal(0);
+    let pick_random = create_rw_signal(false);
+    
+    let (settings, set_settings) = create_signal(Settings::default());
+    provide_context(SettingsContext(settings, set_settings));
+    spawn_local(async move {
+        let args = to_value(&DarsArg {
+            date: "10.10.2023".to_string(),
+        })
+        .unwrap();
+        let sett_str = invoke("get_settings_str", args).await.as_string().unwrap();
+        let data: Settings = serde_json::from_str(&sett_str).unwrap();
+        set_settings.set(data.clone());
+
+        data_url.set(settings.get().data_url);
+        interval.set(settings.get().interval);
+        let sd = NaiveDate::parse_from_str(&settings.get().dars_start_date, "%d.%m.%Y").unwrap();
+        dars_start_date.set(Some(sd));
+        let ed = NaiveDate::parse_from_str(&settings.get().dars_end_date, "%d.%m.%Y").unwrap();
+        dars_end_date.set(Some(ed));
+        log!("{}", settings.get().pick_random);
+        pick_random.set(settings.get().pick_random);
+    });
+
+
 
     view! {
         <div class="sticky top-0 bg-gray-100 p-3 text-sm">
@@ -154,29 +190,33 @@ fn Settings() -> impl IntoView {
         <div class="overflow-auto text-sm p-5">
             <div class="flex-col">
                 <div class="flex items-center gap-2.5 mb-5">
-                    <div>Notification interval</div>
-                    <div><InputNumber value=settings.get().interval step=5/></div> min
+                    <div>Data location</div>
+                    <div class="flex-1"><Input value=data_url/></div>
                 </div>
                 <div class="flex items-center gap-2.5 mb-5">
-                    <p class="">Notify dars between:</p>
-                    <div class="flex">
+                    <div>"Notification interval"</div>
+                    <div><InputNumber value=interval step=5/></div> min
+                </div>
+                <div class="items-center gap-2.5 mb-5">
+                    <p class="font-bold mb-2">Notify dars between:</p>
+                    <div class="flex mb-2">
                         <p class="pr-2 pt-2">Start date</p>
-                        <DatePicker/>
+                        <DatePicker value=dars_start_date/>
                     </div>
                     <div class="flex">
                         <p class="pr-2 pt-2">End date</p>
-                        <DatePicker/>
+                        <DatePicker value=dars_end_date/>
                     </div>
                 </div>
                 <div class="flex items-center gap-2.5 mb-5">
                     <div>Notify random</div>
-                    <div><Switch value=settings.get().pick_random /></div>
+                    <div><Switch value=pick_random /></div>
                 </div>
-                <div class="flex items-center gap-2.5 mb-5">
-                    <div>Mute for next</div>
-                    <div><InputNumber value=settings.get().mute_for step=5/></div> min
-                </div>
-                <div class="font-bold">Mute daily</div>
+                // <div class="flex items-center gap-2.5 mb-5">
+                //     <div>Mute for next</div>
+                //     <div><InputNumber value=mute_for step=5/></div> min
+                // </div>
+                <div class="font-bold">Mute daily *(TBD)*</div>
                 <Divider class="m-2"/>
                 <div class="flex items-center gap-2.5 mb-5">
                     from <div><TimePicker /></div> to <div><TimePicker /></div>
@@ -188,8 +228,46 @@ fn Settings() -> impl IntoView {
                     from <div><TimePicker /></div> to <div><TimePicker /></div>
                 </div>
             </div>
+
+            <Button on:click=move |_| {
+                let new_settings: Settings = Settings {
+                    data_url: data_url.get(),
+                    interval: interval.get(),
+                    dars_start_date: dars_start_date.get().unwrap().format("%d.%m.%Y").to_string(),
+                    dars_end_date: dars_end_date.get().unwrap().format("%d.%m.%Y").to_string(),
+                    pick_random: pick_random.get(),
+                    mute_for: settings.get().mute_for,
+                    mute_def: settings.get().mute_def,
+                    skip_ids: settings.get().skip_ids,
+                };
+                spawn_local(async move {
+                    let args = to_value(&SettingsArg {
+                        data: serde_json::to_string_pretty(&new_settings).expect("msg")
+                    })
+                    .unwrap();
+                    let msg = invoke("set_settings_str", args).await.as_string().unwrap();
+                    show_toast(ToastOptions {
+                        message: format!("{}", msg),
+                        duration: Duration::from_millis(3000),
+                    });
+                });
+
+                // let settings = use_context::<SettingsContext>().unwrap().0;
+                log!("data_url = {}", data_url.get());
+                log!("interval = {}", interval.get());
+                log!("dars_start_date = {}", dars_start_date.get().unwrap().to_string());
+                log!("dars_end_date = {}", dars_end_date.get().unwrap().to_string());
+                log!("mute_for = {}", mute_for.get());
+                log!("pick_random = {}", pick_random.get());
+            } class="mt-5" color=ButtonColor::Success>Save</Button>
         </div>
     }
+}
+
+fn save_settings() {
+    let settings = use_context::<SettingsContext>().unwrap().0;
+    log!("setting = {}", settings.get().interval);
+    ()
 }
 
 #[component]
