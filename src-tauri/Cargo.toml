@@ -14,7 +14,7 @@ tauri-build = { version = "1", features = [] }
 tauri = { version = "1", features = [ "notification-all", "shell-open", "notification", "system-tray"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
-reqwest = { version = "0.11", features = ["blocking"] }
+reqwest = { version = "0.12.2", features = ["blocking"] }
 lazy_static = "1.4.0"
 chrono = "0.4.35"
 rand = "0.8.5"

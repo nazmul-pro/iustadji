@@ -1,5 +1,4 @@
 use std::time::Duration;
-
 use chrono::{Local, NaiveDate};
 use leptos::logging::log;
 use leptos::*;
@@ -7,10 +6,9 @@ use leptos_router::*;
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
 use thaw::mobile::{show_toast, ToastOptions};
-use thaw::{Button, ButtonColor, ButtonVariant, Divider, Input, TimePicker};
+use thaw::{Button, ButtonColor, Divider, Input, TimePicker};
 use thaw::{DatePicker, InputNumber, SignalWatch, Switch};
 use wasm_bindgen::prelude::*;
-use web_sys::MouseEvent;
 
 #[wasm_bindgen]
 extern "C" {
@@ -30,12 +28,11 @@ pub struct SettingsArg {
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct NotificationData {
-    id: i32,
+    id: String,
     title: String,
     description: String,
 }
 
-// Define the Dars struct
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct Dars {
     date: String,
@@ -98,7 +95,7 @@ pub fn App() -> impl IntoView {
                 date: "10.10.2023".to_string(),
             })
             .unwrap();
-            // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
+
             let dars_str = invoke("get_dars", args).await.as_string().unwrap();
             let data: Vec<Dars> = serde_json::from_str(&dars_str).unwrap();
             set_dars.set(data.clone());
@@ -179,8 +176,6 @@ fn Settings() -> impl IntoView {
         pick_random.set(settings.get().pick_random);
     });
 
-
-
     view! {
         <div class="sticky top-0 bg-gray-100 p-3 text-sm">
             <div class="flex">
@@ -230,6 +225,16 @@ fn Settings() -> impl IntoView {
             </div>
 
             <Button on:click=move |_| {
+                if data_url.get().is_empty() || 
+                    interval.get() < 1 || 
+                    dars_start_date.get().is_none() || 
+                    dars_end_date.get().is_none() {
+                        show_toast(ToastOptions {
+                            message: format!("{}", "Invalid settings"),
+                            duration: Duration::from_millis(3000),
+                        });
+                        return;
+                }
                 let new_settings: Settings = Settings {
                     data_url: data_url.get(),
                     interval: interval.get(),
@@ -252,22 +257,9 @@ fn Settings() -> impl IntoView {
                     });
                 });
 
-                // let settings = use_context::<SettingsContext>().unwrap().0;
-                log!("data_url = {}", data_url.get());
-                log!("interval = {}", interval.get());
-                log!("dars_start_date = {}", dars_start_date.get().unwrap().to_string());
-                log!("dars_end_date = {}", dars_end_date.get().unwrap().to_string());
-                log!("mute_for = {}", mute_for.get());
-                log!("pick_random = {}", pick_random.get());
             } class="mt-5" color=ButtonColor::Success>Save</Button>
         </div>
     }
-}
-
-fn save_settings() {
-    let settings = use_context::<SettingsContext>().unwrap().0;
-    log!("setting = {}", settings.get().interval);
-    ()
 }
 
 #[component]
