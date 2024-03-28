@@ -1,0 +1,12 @@
+[
+    {
+        "data_url": "https://raw.githubusercontent.com/nazmul-pro/iustadji/data/dars.json",
+        "interval": 1,
+        "dars_start_date": "01.01.2024",
+        "dars_end_date": "31.12.2024",
+        "mute_for": 0,
+        "mute_def": [],
+        "pick_random": false,
+        "skip_ids": []
+    }
+]
