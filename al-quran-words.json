@@ -1,0 +1,1837 @@
+[
+    {
+        "date": "04.04.2024",
+        "notifications": [
+          {
+            "id": "1",
+            "title": "اللَّهُ",
+            "description": "اللَّهُ - (Allāh) আল্লাহ্‌ - The One True God | 2699"
+          },
+          {
+            "id": "2",
+            "title": "رَبٌّ",
+            "description": "رَبٌّ - (Rabbun) রব্ব/প্রতিপালক - Lord/Sustainer | 970"
+          },
+          {
+            "id": "3",
+            "title": "الرَّحْمَنُ",
+            "description": "الرَّحْمَنُ - (Ar-Raḥmānu) রহমান/পরম করুণাময় - The Most Merciful | 57"
+          },
+          {
+            "id": "4",
+            "title": "الرَّحِيمُ",
+            "description": "الرَّحِيمُ - (Ar-Raḥīmu) রহীম/অতি দয়ালু - The Especially Merciful | 115"
+          },
+          {
+            "id": "5",
+            "title": "حِكْمَةٌ",
+            "description": "حِكْمَةٌ - (Ḥikmatun) হিকমত - Wisdom | 20"
+          },
+          {
+            "id": "6",
+            "title": "عِلْمٌ",
+            "description": "عِلْمٌ - ('Ilmun) ইলম/জ্ঞান - Knowledge | 105"
+          },
+          {
+            "id": "7",
+            "title": "إِيمَانٌ",
+            "description": "إِيمَانٌ - (Īmānun) ঈমান/বিশ্বাস - Faith | 45"
+          },
+          {
+            "id": "8",
+            "title": "كِتَابٌ",
+            "description": "كِتَابٌ - (Kitābun) কিতাব/গ্রন্থ - Book | 261"
+          },
+          {
+            "id": "9",
+            "title": "النَّاسُ",
+            "description": "النَّاسُ - (An-Nāsu) মানুষ - People | 241"
+          },
+          {
+            "id": "10",
+            "title": "رَسُولٌ",
+            "description": "رَسُولٌ - (Rasūlun) রাসূল/দূত - Messenger | 332"
+          },
+          {
+            "id": "11",
+            "title": "نَبِيٌّ",
+            "description": "نَبِيٌّ - (Nabiyyun) নবী - Prophet | 75"
+          },
+          {
+            "id": "12",
+            "title": "مَلَكٌ",
+            "description": "مَلَكٌ - (Malakun) ফিরিশতা - Angel | 88"
+          },
+          {
+            "id": "13",
+            "title": "جَنَّةٌ",
+            "description": "جَنَّةٌ - (Jannatun) জান্নাত/বেহেশত - Paradise | 147"
+          },
+          {
+            "id": "14",
+            "title": "نَارٌ",
+            "description": "نَارٌ - (Nārun) আগুন/জাহান্নাম - Fire/Hell | 145"
+          },
+          {
+            "id": "15",
+            "title": "صَلَاةٌ",
+            "description": "صَلَاةٌ - (Ṣalātun) নামায/সালাত - Prayer | 99"
+          },
+          {
+          "id": "16",
+          "title": "زَكَاةٌ",
+          "description": "زَكَاةٌ - (Zakātun) যাকাত - Obligatory Charity | 32"
+          },
+          {
+          "id": "17",
+          "title": "صَوْمٌ",
+          "description": "صَوْمٌ - (Ṣawmun) রোজা/সিয়াম - Fasting | 13"
+          },
+          {
+          "id": "18",
+          "title": "حَجٌّ",
+          "description": "حَجٌّ - (Ḥajjun) হজ্জ - Pilgrimage | 12"
+          },
+          {
+          "id": "19",
+          "title": "دُنْيَا",
+          "description": "دُنْيَا - (Dunyā) দুনিয়া - Worldly Life | 115"
+          },
+          {
+          "id": "20",
+          "title": "آخِرَةٌ",
+          "description": "آخِرَةٌ - (Ākhiratun) আখিরাত - Hereafter | 115"
+          },
+          {
+          "id": "21",
+          "title": "يَوْمٌ",
+          "description": "يَوْمٌ - (Yawmun) দিন - Day | 475"
+          },
+          {
+          "id": "22",
+          "title": "لَيْلٌ",
+          "description": "لَيْلٌ - (Laylun) রাত্রি - Night | 92"
+          },
+          {
+          "id": "23",
+          "title": "سَمَاءٌ",
+          "description": "سَمَاءٌ - (Samāun) আসমান/আকাশ - Sky/Heaven | 310"
+          },
+          {
+          "id": "24",
+          "title": "أَرْضٌ",
+          "description": "أَرْضٌ - (Arḍun) যমীন/পৃথিবী - Earth | 461"
+          },
+          {
+          "id": "25",
+          "title": "شَمْسٌ",
+          "description": "شَمْسٌ - (Shamsun) সূর্য - Sun | 33"
+          },
+          {
+          "id": "26",
+          "title": "قَمَرٌ",
+          "description": "قَمَرٌ - (Qamarun) চাঁদ - Moon | 27"
+          },
+          {
+          "id": "27",
+          "title": "نَجْمٌ",
+          "description": "نَجْمٌ - (Najmun) তারা - Star | 13"
+          },
+          {
+          "id": "28",
+          "title": "مَاءٌ",
+          "description": "مَاءٌ - (Māun) পানি - Water | 63"
+          },
+          {
+          "id": "29",
+          "title": "جَبَلٌ",
+          "description": "جَبَلٌ - (Jabalun) পর্বত - Mountain | 39"
+          },
+          {
+          "id": "30",
+          "title": "شَجَرَةٌ",
+          "description": "شَجَرَةٌ - (Shajaratun) গাছ - Tree | 26"
+          },
+          {
+          "id": "31",
+          "title": "نَفْسٌ",
+          "description": "نَفْسٌ - (Nafsun) নফস/আত্মা - Soul | 295"
+          },
+          {
+          "id": "32",
+          "title": "قَلْبٌ",
+          "description": "قَلْبٌ - (Qalbun) অন্তর - Heart | 132"
+          },
+          {
+          "id": "33",
+          "title": "وَجْهٌ",
+          "description": "وَجْهٌ - (Wajhun) মুখ/চেহারা - Face | 72"
+          },
+          {
+          "id": "34",
+          "title": "عَيْنٌ",
+          "description": "عَيْنٌ - ('Aynun) চোখ - Eye | 47"
+          },
+          {
+          "id": "35",
+          "title": "يَدٌ",
+          "description": "يَدٌ - (Yadun) হাত - Hand | 120"
+          },
+          {
+          "id": "36",
+          "title": "ذُنُوبٌ",
+          "description": "ذُنُوبٌ - (Dhunūbun) গুনাহ/পাপ - Sins | 39"
+          },
+          {
+          "id": "37",
+          "title": "تَوْبَةٌ",
+          "description": "تَوْبَةٌ - (Tawbatun) তওবা - Repentance | 87"
+          },
+          {
+          "id": "38",
+          "title": "عَمَلٌ",
+          "description": "عَمَلٌ - ('Amalun) কর্ম/কাজ - Deed | 359"
+          },
+          {
+          "id": "39",
+          "title": "أَجْرٌ",
+          "description": "أَجْرٌ - (Ajrun) প্রতিদান - Reward | 108"
+          },
+          {
+          "id": "40",
+          "title": "جَزَاءٌ",
+          "description": "جَزَاءٌ - (Jazāun) প্রতিফল - Recompense | 118"
+          },
+          {
+          "id": "41",
+          "title": "حَسَنَةٌ",
+          "description": "حَسَنَةٌ - (Ḥasanatun) পুণ্য - Good Deed | 31"
+          },
+          {
+          "id": "42",
+          "title": "سَيِّئَةٌ",
+          "description": "سَيِّئَةٌ - (Sayyi'atun) পাপ - Bad Deed | 24"
+          },
+          {
+          "id": "43",
+          "title": "صَبْرٌ",
+          "description": "صَبْرٌ - (Ṣabrun) ধৈর্য - Patience | 103"
+          },
+          {
+          "id": "44",
+          "title": "شُكْرٌ",
+          "description": "شُكْرٌ - (Shukrun) কৃতজ্ঞতা - Gratitude | 75"
+          },
+          {
+          "id": "45",
+          "title": "ذِكْرٌ",
+          "description": "ذِكْرٌ - (Dhikrun) স্মরণ - Remembrance | 292"
+          },
+          {
+          "id": "46",
+          "title": "دُعَاءٌ",
+          "description": "دُعَاءٌ - (Du'āun) দোয়া - Supplication | 212"
+          },
+          {
+          "id": "47",
+          "title": "قُرْآنٌ",
+          "description": "قُرْآنٌ - (Qur'ānun) কুরআন - Quran | 70"
+          },
+          {
+          "id": "48",
+          "title": "آيَةٌ",
+          "description": "آيَةٌ - (Āyatun) আয়াত - Verse/Sign | 382"
+          },
+          {
+          "id": "49",
+          "title": "سُورَةٌ",
+          "description": "سُورَةٌ - (Sūratun) সূরা - Chapter | 9"
+          },
+          {
+          "id": "50",
+          "title": "مَثَلٌ",
+          "description": "مَثَلٌ - (Mathalun) দৃষ্টান্ত - Example | 169"
+          },
+          {
+          "id": "51",
+          "title": "وَعْدٌ",
+          "description": "وَعْدٌ - (Wa'dun) ওয়াদা/প্রতিশ্রুতি - Promise | 124"
+          },
+          {
+          "id": "52",
+          "title": "عَهْدٌ",
+          "description": "عَهْدٌ - ('Ahdun) অঙ্গীকার - Covenant | 46"
+          },
+          {
+          "id": "53",
+          "title": "أَمْرٌ",
+          "description": "أَمْرٌ - (Amrun) নির্দেশ/বিষয় - Command/Matter | 244"
+          },
+          {
+          "id": "54",
+          "title": "نَهْيٌ",
+          "description": "نَهْيٌ - (Nahyun) নিষেধ - Prohibition | 56"
+          },
+          {
+          "id": "55",
+          "title": "حَقٌّ",
+          "description": "حَقٌّ - (Ḥaqqun) সত্য - Truth | 287"
+          },
+          {
+          "id": "56",
+          "title": "بَاطِلٌ",
+          "description": "بَاطِلٌ - (Bāṭilun) মিথ্যা/অসত্য - Falsehood | 36"
+          },
+          {
+          "id": "57",
+          "title": "خَيْرٌ",
+          "description": "خَيْرٌ - (Khayrun) কল্যাণ - Good | 176"
+          },
+          {
+          "id": "58",
+          "title": "شَرٌّ",
+          "description": "شَرٌّ - (Sharrun) অকল্যাণ - Evil | 29"
+          },
+          {
+          "id": "59",
+          "title": "نُورٌ",
+          "description": "نُورٌ - (Nūrun) আলো - Light | 49"
+          },
+          {
+          "id": "60",
+          "title": "ظُلُمَاتٌ",
+          "description": "ظُلُمَاتٌ - (Ẓulumātun) অন্ধকার - Darkness | 23"
+          },
+          {
+          "id": "61",
+          "title": "هُدًى",
+          "description": "هُدًى - (Hudan) পথনির্দেশ - Guidance | 85"
+          },
+          {
+          "id": "62",
+          "title": "ضَلَالٌ",
+          "description": "ضَلَالٌ - (Ḍalālun) পথভ্রষ্টতা - Misguidance | 64"
+          },
+          {
+          "id": "63",
+          "title": "رَحْمَةٌ",
+          "description": "رَحْمَةٌ - (Raḥmatun) রহমত/দয়া - Mercy | 114"
+          },
+          {
+          "id": "64",
+          "title": "عَذَابٌ",
+          "description": "عَذَابٌ - ('Adhābun) আযাব/শাস্তি - Punishment | 322"
+          },
+          {
+          "id": "65",
+          "title": "جَزَاءٌ",
+          "description": "جَزَاءٌ - (Jazāun) প্রতিফল - Recompense | 118"
+          },
+          {
+          "id": "1",
+          "title": "إِيمَانٌ",
+          "description": "إِيمَانٌ - (Īmānun) ঈমান - Faith | 45"
+          },
+          {
+          "id": "2",
+          "title": "صَلَاةٌ",
+          "description": "صَلَاةٌ - (Salātun) সালাত - Prayer | 67"
+          },
+          {
+          "id": "3",
+          "title": "صَبْرٌ",
+          "description": "صَبْرٌ - (Sabrun) ধৈর্য - Patience | 40"
+          },
+          {
+          "id": "4",
+          "title": "قُرْآنٌ",
+          "description": "قُرْآنٌ - (Qur'ānun) কুরআন - Recitation | 70"
+          },
+          {
+          "id": "5",
+          "title": "رَحْمَةٌ",
+          "description": "رَحْمَةٌ - (Rahmatun) রহমত - Mercy | 65"
+          },
+          {
+          "id": "6",
+          "title": "نَبِيٌّ",
+          "description": "نَبِيٌّ - (Nabiyyun) নবী - Prophet | 43"
+          },
+          {
+          "id": "7",
+          "title": "حِكْمَةٌ",
+          "description": "حِكْمَةٌ - (Ḥikmatun) হিকমত - Wisdom | 20"
+          },
+          {
+          "id": "8",
+          "title": "جَنَّةٌ",
+          "description": "جَنَّةٌ - (Jannatun) জান্নাত - Paradise | 50"
+          },
+          {
+          "id": "9",
+          "title": "نَارٌ",
+          "description": "نَارٌ - (Nārun) আগুন - Hellfire | 38"
+          },
+          {
+          "id": "10",
+          "title": "كِتَابٌ",
+          "description": "كِتَابٌ - (Kitābun) কিতাব - Book | 56"
+          },
+          {
+          "id": "11",
+          "title": "شَيْطَانٌ",
+          "description": "شَيْطَانٌ - (Shayṭānun) শয়তান - Satan | 61"
+          },
+          {
+          "id": "12",
+          "title": "حَقٌّ",
+          "description": "حَقٌّ - (Ḥaqqun) হক - Truth | 39"
+          },
+          {
+          "id": "13",
+          "title": "إِحْسَانٌ",
+          "description": "إِحْسَانٌ - (Iḥsānun) ইহসান - Excellence | 22"
+          },
+          {
+          "id": "14",
+          "title": "دُعَاءٌ",
+          "description": "دُعَاءٌ - (Duʿāʾun) দোয়া - Supplication | 33"
+          },
+          {
+          "id": "15",
+          "title": "وَاحِدٌ",
+          "description": "وَاحِدٌ - (Wāḥidun) এক - One (Allah) | 47"
+          },
+          {
+          "id": "16",
+          "title": "زَكَاةٌ",
+          "description": "زَكَاةٌ - (Zakātun) যাকাত - Obligatory Charity | 32"
+          },
+          {
+          "id": "17",
+          "title": "بَرَكَةٌ",
+          "description": "بَرَكَةٌ - (Barakatun) বরকত - Blessing | 24"
+          },
+          {
+          "id": "18",
+          "title": "إِبْلِيسُ",
+          "description": "إِبْلِيسُ - (Iblīs) ইবলিস - Devil | 11"
+          },
+          {
+          "id": "19",
+          "title": "عِلْمٌ",
+          "description": "عِلْمٌ - (ʿIlmun) জ্ঞান - Knowledge | 52"
+          },
+          {
+          "id": "20",
+          "title": "مَلَكٌ",
+          "description": "مَلَكٌ - (Malakun) ফেরেশতা - Angel | 49"
+          },
+          {
+          "id": "21",
+          "title": "نُورٌ",
+          "description": "نُورٌ - (Nūrun) নূর - Light | 37"
+          },
+          {
+          "id": "22",
+          "title": "كَرِيمٌ",
+          "description": "كَرِيمٌ - (Karīmun) দয়ালু - Generous | 29"
+          },
+          {
+          "id": "23",
+          "title": "أُمَّةٌ",
+          "description": "أُمَّةٌ - (Ummatun) উম্মাহ - Nation | 30"
+          },
+          {
+          "id": "24",
+          "title": "أَمَانَةٌ",
+          "description": "أَمَانَةٌ - (Amānatun) আমানত - Trust | 15"
+          },
+          {
+          "id": "25",
+          "title": "صَدَقَةٌ",
+          "description": "صَدَقَةٌ - (Ṣadaqatun) সদকা - Charity | 31"
+          },
+          {
+          "id": "26",
+          "title": "نَبْلٌ",
+          "description": "نَبْلٌ - (Nabllun) পরীক্ষা - Test | 19"
+          },
+          {
+          "id": "27",
+          "title": "خَيْرٌ",
+          "description": "خَيْرٌ - (Khayrun) কল্যাণ - Goodness | 45"
+          },
+          {
+          "id": "28",
+          "title": "شَرٌّ",
+          "description": "شَرٌّ - (Sharrun) মন্দ - Evil | 20"
+          },
+          {
+          "id": "29",
+          "title": "يَوْمٌ",
+          "description": "يَوْمٌ - (Yawmun) দিন - Day | 80"
+          },
+          {
+          "id": "30",
+          "title": "عَمَلٌ",
+          "description": "عَمَلٌ - (ʿAmalun) কাজ - Deed | 60"
+          },
+          {
+          "id": "31",
+          "title": "بَشِيرٌ",
+          "description": "بَشِيرٌ - (Bashīrun) সুসংবাদবাহক - Bearer of good news | 18"
+          },
+          {
+          "id": "32",
+          "title": "عَذَابٌ",
+          "description": "عَذَابٌ - (ʿAdhābun) শাস্তি - Punishment | 53"
+          },
+          {
+          "id": "33",
+          "title": "رِزْقٌ",
+          "description": "رِزْقٌ - (Rizqun) রিযিক - Sustenance | 44"
+          },
+          {
+          "id": "34",
+          "title": "تَوْبَةٌ",
+          "description": "تَوْبَةٌ - (Tawbatun) তাওবা - Repentance | 25"
+          },
+          {
+          "id": "35",
+          "title": "حَكِيمٌ",
+          "description": "حَكِيمٌ - (Ḥakīmun) প্রজ্ঞাময় - Wise | 48"
+          },
+          {
+          "id": "36",
+          "title": "شَكُورٌ",
+          "description": "شَكُورٌ - (Shakūrun) কৃতজ্ঞ - Thankful | 23"
+          },
+          {
+          "id": "37",
+          "title": "حَيَاةٌ",
+          "description": "حَيَاةٌ - (Ḥayātun) জীবন - Life | 41"
+          },
+          {
+          "id": "38",
+          "title": "مَغْفِرَةٌ",
+          "description": "مَغْفِرَةٌ - (Maghfiratun) মাগফিরাত - Forgiveness | 35"
+          },
+          {
+          "id": "39",
+          "title": "ذَنْبٌ",
+          "description": "ذَنْبٌ - (Dhanbun) পাপ - Sin | 27"
+          },
+          {
+          "id": "40",
+          "title": "مُنَافِقٌ",
+          "description": "مُنَافِقٌ - (Munāfiq) মুনাফিক - Hypocrite | 24"
+          },
+          {
+          "id": "41",
+          "title": "ظُلْمٌ",
+          "description": "ظُلْمٌ - (Ẓulmun) অত্যাচার - Injustice | 36"
+          },
+          {
+          "id": "42",
+          "title": "مُحْسِنٌ",
+          "description": "مُحْسِنٌ - (Muḥsinun) সৎকর্মশীল - Doer of good | 22"
+          },
+          {
+          "id": "43",
+          "title": "غَفُورٌ",
+          "description": "غَفُورٌ - (Ghufūrun) পরমক্ষমাশীল - Most Forgiving | 50"
+          },
+          {
+          "id": "44",
+          "title": "مُجْرِمٌ",
+          "description": "مُجْرِمٌ - (Mujrimun) অপরাধী - Criminal | 28"
+          },
+          {
+          "id": "45",
+          "title": "هُدًى",
+          "description": "هُدًى - (Hudā) হেদায়েত - Guidance | 55"
+          },
+          {
+          "id": "46",
+          "title": "فَوْزٌ",
+          "description": "فَوْزٌ - (Fawzun) বিজয় - Success | 30"
+          },
+          {
+          "id": "47",
+          "title": "نَصْرٌ",
+          "description": "نَصْرٌ - (Naṣrun) সাহায্য - Help | 33"
+          },
+          {
+          "id": "48",
+          "title": "إِذْنٌ",
+          "description": "إِذْنٌ - (Idhnun) অনুমতি - Permission | 17"
+          },
+          {
+          "id": "49",
+          "title": "قُدْرَةٌ",
+          "description": "قُدْرَةٌ - (Qudratun) ক্ষমতা - Power | 21"
+          },
+          {
+          "id": "50",
+          "title": "كُفْرٌ",
+          "description": "كُفْرٌ - (Kufrun) কুফর - Disbelief | 38"
+          },
+          {
+          "id": "51",
+          "title": "نِعْمَةٌ",
+          "description": "نِعْمَةٌ - (Niʿmatun) নিয়ামত - Blessing | 29"
+          },
+          {
+          "id": "52",
+          "title": "عَاقِبَةٌ",
+          "description": "عَاقِبَةٌ - (ʿĀqibatun) পরিণাম - Consequence | 20"
+          },
+          {
+          "id": "53",
+          "title": "بَاطِلٌ",
+          "description": "بَاطِلٌ - (Bāṭilun) মিথ্যা - Falsehood | 26"
+          },
+          {
+          "id": "54",
+          "title": "شُكْرٌ",
+          "description": "شُكْرٌ - (Shukrun) শোকর - Gratitude | 19"
+          },
+          {
+          "id": "55",
+          "title": "سَعِيدٌ",
+          "description": "سَعِيدٌ - (Saʿīdun) সুখী - Happy | 18"
+          },
+          {
+          "id": "56",
+          "title": "صِدْقٌ",
+          "description": "صِدْقٌ - (Ṣidqun) সত্য - Truthfulness | 34"
+          },
+          {
+          "id": "57",
+          "title": "حِسَابٌ",
+          "description": "حِسَابٌ - (Ḥisābun) হিসাব - Reckoning | 32"
+          },
+          {
+          "id": "58",
+          "title": "مَوْعِظَةٌ",
+          "description": "مَوْعِظَةٌ - (Mawʿiẓatun) উপদেশ - Admonition | 25"
+          },
+          {
+          "id": "59",
+          "title": "صِرَاطٌ",
+          "description": "صِرَاطٌ - (Ṣirāṭun) পথ - Path | 27"
+          },
+          {
+          "id": "60",
+          "title": "فِرْعَوْنُ",
+          "description": "فِرْعَوْنُ - (Firʿawnu) ফিরাউন - Pharaoh | 33"
+          },
+          {
+          "id": "61",
+          "title": "نَفْسٌ",
+          "description": "نَفْسٌ - (Nafsun) আত্মা - Soul | 42"
+          },
+          {
+          "id": "62",
+          "title": "حُكْمٌ",
+          "description": "حُكْمٌ - (Ḥukmun) শাসন - Judgment | 35"
+          },
+          {
+          "id": "63",
+          "title": "سَفَرٌ",
+          "description": "سَفَرٌ - (Safarun) সফর - Journey | 21"
+          },
+          {
+          "id": "64",
+          "title": "عِبَادَةٌ",
+          "description": "عِبَادَةٌ - (ʿIbādatun) ইবাদত - Worship | 23"
+          },
+          {
+          "id": "65",
+          "title": "كَلِمَةٌ",
+          "description": "كَلِمَةٌ - (Kalimatun) শব্দ - Word | 28"
+          },
+          {
+          "id": "66",
+          "title": "دِينٌ",
+          "description": "دِينٌ - (Dīn) দ্বীন - Religion | 60"
+          },
+          {
+          "id": "67",
+          "title": "سَبِيلٌ",
+          "description": "سَبِيلٌ - (Sabīlun) রাস্তা - Way | 52"
+          },
+          {
+          "id": "68",
+          "title": "إِنْسَانٌ",
+          "description": "إِنْسَانٌ - (Insānun) মানুষ - Human | 41"
+          },
+          {
+          "id": "69",
+          "title": "يَقِينٌ",
+          "description": "يَقِينٌ - (Yaqīnun) দৃঢ়বিশ্বাস - Certainty | 30"
+          },
+          {
+          "id": "70",
+          "title": "رَحِيمٌ",
+          "description": "رَحِيمٌ - (Raḥīmun) পর"
+          },
+          {
+          "id": "70",
+          "title": "رَحِيمٌ",
+          "description": "رَحِيمٌ - (Raḥīmun) পরম দয়ালু - Most Merciful | 57"
+          },
+          {
+          "id": "71",
+          "title": "مُؤْمِنٌ",
+          "description": "مُؤْمِنٌ - (Muʾminun) মুমিন - Believer | 35"
+          },
+          {
+          "id": "72",
+          "title": "كَرِيمٌ",
+          "description": "كَرِيمٌ - (Karīmun) দানশীল - Generous | 22"
+          },
+          {
+          "id": "73",
+          "title": "فِتْنَةٌ",
+          "description": "فِتْنَةٌ - (Fitnatun) ফিতনা - Trial | 39"
+          },
+          {
+          "id": "74",
+          "title": "أَجْرٌ",
+          "description": "أَجْرٌ - (Ajrun) পুরস্কার - Reward | 44"
+          },
+          {
+          "id": "75",
+          "title": "عَفْوٌ",
+          "description": "عَفْوٌ - (ʿAfwu) ক্ষমা - Pardon | 20"
+          },
+          {
+          "id": "76",
+          "title": "حَقٌّ",
+          "description": "حَقٌّ - (Ḥaqq) সত্য - Truth | 61"
+          },
+          {
+          "id": "77",
+          "title": "شَهِيدٌ",
+          "description": "شَهِيدٌ - (Shahīdun) সাক্ষী - Witness | 30"
+          },
+          {
+          "id": "78",
+          "title": "دُعَاءٌ",
+          "description": "دُعَاءٌ - (Duʿāʾun) দোয়া - Supplication | 21"
+          },
+          {
+          "id": "79",
+          "title": "بَرَكَةٌ",
+          "description": "بَرَكَةٌ - (Barakatun) বরকত - Blessing | 18"
+          },
+          {
+          "id": "80",
+          "title": "نَفْقَةٌ",
+          "description": "نَفْقَةٌ - (Nafaqatun) ব্যয় - Spending | 26"
+          },
+          {
+          "id": "81",
+          "title": "صَبْرٌ",
+          "description": "صَبْرٌ - (Ṣabrun) ধৈর্য - Patience | 48"
+          },
+          {
+          "id": "82",
+          "title": "مَجْدٌ",
+          "description": "مَجْدٌ - (Majdun) মহিমা - Glory | 19"
+          },
+          {
+          "id": "83",
+          "title": "نِسَاءٌ",
+          "description": "نِسَاءٌ - (Nisāʾun) নারী - Women | 31"
+          },
+          {
+          "id": "84",
+          "title": "خَيْرٌ",
+          "description": "خَيْرٌ - (Khayrun) কল্যাণ - Goodness | 53"
+          },
+          {
+          "id": "85",
+          "title": "حِكْمَةٌ",
+          "description": "حِكْمَةٌ - (Ḥikmatun) প্রজ্ঞা - Wisdom | 27"
+          },
+          {
+          "id": "86",
+          "title": "إِيمَانٌ",
+          "description": "إِيمَانٌ - (Īmānun) ঈমান - Faith | 29"
+          },
+          {
+          "id": "87",
+          "title": "عِلْمٌ",
+          "description": "عِلْمٌ - (ʿIlmun) জ্ঞান - Knowledge | 55"
+          },
+          {
+          "id": "88",
+          "title": "أُمَّةٌ",
+          "description": "أُمَّةٌ - (Ummatun) জাতি - Nation | 23"
+          },
+          {
+          "id": "89",
+          "title": "وَعْدٌ",
+          "description": "وَعْدٌ - (Waʿdun) প্রতিশ্রুতি - Promise | 33"
+          },
+          {
+          "id": "90",
+          "title": "رَزَقَ",
+          "description": "رَزَقَ - (Razaqa) রিযিক দিয়েছেন - He provided | 45"
+          },
+          {
+          "id": "91",
+          "title": "فَضْلٌ",
+          "description": "فَضْلٌ - (Faḍlun) অনুগ্রহ - Grace | 36"
+          },
+          {
+          "id": "92",
+          "title": "سُورَةٌ",
+          "description": "سُورَةٌ - (Sūratun) সুরা - Chapter | 18"
+          },
+          {
+          "id": "93",
+          "title": "مَلَكٌ",
+          "description": "مَلَكٌ - (Malakun) ফেরেশতা - Angel | 40"
+          },
+          {
+          "id": "94",
+          "title": "أَمْرٌ",
+          "description": "أَمْرٌ - (Amrun) আদেশ - Command | 38"
+          },
+          {
+          "id": "95",
+          "title": "مَوْتٌ",
+          "description": "مَوْتٌ - (Mawtun) মৃত্যু - Death | 34"
+          },
+          {
+          "id": "96",
+          "title": "ذِكْرٌ",
+          "description": "ذِكْرٌ - (Dhikr) স্মরণ - Remembrance | 53"
+          },
+          {
+          "id": "97",
+          "title": "إِحْسَانٌ",
+          "description": "إِحْسَانٌ - (Iḥsānun) সৎকর্ম - Good deed | 25"
+          },
+          {
+          "id": "98",
+          "title": "حَسَنَةٌ",
+          "description": "حَسَنَةٌ - (Ḥasanatun) পুণ্য - Goodness | 24"
+          },
+          {
+          "id": "99",
+          "title": "عَاقِلٌ",
+          "description": "عَاقِلٌ - (ʿĀqilun) বুদ্ধিমান - Wise | 28"
+          },
+          {
+          "id": "100",
+          "title": "عَهْدٌ",
+          "description": "عَهْدٌ - (ʿAhdun) অঙ্গীকার - Covenant | 26"
+          },
+          {
+          "id": "101",
+          "title": "حَيٌّ",
+          "description": "حَيٌّ - (Ḥayyun) জীবিত - Living | 21"
+          },
+          {
+          "id": "102",
+          "title": "مُسْلِمٌ",
+          "description": "مُسْلِمٌ - (Muslimun) মুসলিম - Muslim | 32"
+          },
+          {
+          "id": "103",
+          "title": "مَتَاعٌ",
+          "description": "مَتَاعٌ - (Matāʿun) উপকরণ - Goods | 29"
+          },
+          {
+          "id": "104",
+          "title": "بَاطِنٌ",
+          "description": "بَاطِنٌ - (Bāṭinun) গোপন - Hidden | 20"
+          },
+          {
+          "id": "105",
+          "title": "حُرٌّ",
+          "description": "حُرٌّ - (Ḥurrun) স্বাধীন - Free | 18"
+          },
+          {
+          "id": "106",
+          "title": "ظَالِمٌ",
+          "description": "ظَالِمٌ - (Ẓālimun) অত্যাচারী - Oppressor | 31"
+          },
+          {
+          "id": "107",
+          "title": "إِصْلَاحٌ",
+          "description": "إِصْلَاحٌ - (Iṣlāḥun) সংস্কার - Reform | 23"
+          },
+          {
+          "id": "108",
+          "title": "عَرْشٌ",
+          "description": "عَرْشٌ - (ʿArshun) আরশ - Throne | 24"
+          },
+          {
+          "id": "109",
+          "title": "صَدَقَةٌ",
+          "description": "صَدَقَةٌ - (Ṣadaqatun) দান - Charity | 28"
+          },
+          {
+          "id": "110",
+          "title": "سَرَابٌ",
+          "description": "سَرَابٌ - (Sarābun) মরীচিকা - Mirage | 19"
+          },
+          {
+          "id": "111",
+          "title": "صَحِيفَةٌ",
+          "description": "صَحِيفَةٌ - (Ṣaḥīfatun) দলিল - Record | 22"
+          },
+          {
+          "id": "112",
+          "title": "نَبِيٌّ",
+          "description": "نَبِيٌّ - (Nabiyyun) নবী - Prophet | 39"
+          },
+          {
+          "id": "113",
+          "title": "بَيِّنَةٌ",
+          "description": "بَيِّنَةٌ - (Bayyinatun) সুস্পষ্ট প্রমাণ - Clear Proof | 26"
+          },
+          {
+          "id": "114",
+          "title": "عِبَادَةٌ",
+          "description": "عِبَادَةٌ - (ʿIbādatun) উপাসনা - Worship | 28"
+          },
+          {
+          "id": "115",
+          "title": "إِبْلِيسٌ",
+          "description": "إِبْلِيسٌ - (Iblīs) ইবলিস - Satan | 19"
+          },
+          {
+          "id": "116",
+          "title": "فَتْحٌ",
+          "description": "فَتْحٌ - (Fatḥun) বিজয় - Victory | 20"
+          },
+          {
+          "id": "117",
+          "title": "تَابِعٌ",
+          "description": "تَابِعٌ - (Tābiʿun) অনুসারী - Follower | 21"
+          },
+          {
+          "id": "118",
+          "title": "سُبْحَانَ",
+          "description": "سُبْحَانَ - (Subḥān) পবিত্রতা - Glory (of God) | 17"
+          },
+          {
+          "id": "119",
+          "title": "فَسَادٌ",
+          "description": "فَسَادٌ - (Fasādun) দুর্নীতি - Corruption | 24"
+          },
+          {
+          "id": "120",
+          "title": "مِنَةٌ",
+          "description": "مِنَةٌ - (Minatun) অনুগ্রহ - Favor | 18"
+          },
+          {
+          "id": "121",
+          "title": "أَمَانَةٌ",
+          "description": "أَمَانَةٌ - (Amānatun) আমানত - Trust | 25"
+          },
+          {
+          "id": "122",
+          "title": "مَوْعِظَةٌ",
+          "description": "مَوْعِظَةٌ - (Mawʿiẓatun) উপদেশ - Admonition | 27"
+          },
+          {
+          "id": "123",
+          "title": "رُسُلٌ",
+          "description": "رُسُلٌ - (Rusulun) রসূলগণ - Messengers | 32"
+          },
+          {
+          "id": "124",
+          "title": "حُكْمٌ",
+          "description": "حُكْمٌ - (Ḥukmun) হুকুম - Judgement | 29"
+          },
+          {
+          "id": "125",
+          "title": "تَقْوَى",
+          "description": "تَقْوَى - (Taqwā) খোদাভীতি - God-consciousness | 31"
+          },
+          {
+          "id": "126",
+          "title": "كِتَابٌ",
+          "description": "كِتَابٌ - (Kitābun) কিতাব - Book | 34"
+          },
+          {
+          "id": "127",
+          "title": "زَكَاةٌ",
+          "description": "زَكَاةٌ - (Zakātun) যাকাত - Alms-giving | 26"
+          },
+          {
+          "id": "128",
+          "title": "أَهْلٌ",
+          "description": "أَهْلٌ - (Ahlun) পরিবার - Family | 27"
+          },
+          {
+          "id": "129",
+          "title": "عَذَابٌ",
+          "description": "عَذَابٌ - (ʿAdhābun) শাস্তি - Punishment | 33"
+          },
+          {
+          "id": "130",
+          "title": "نُورٌ",
+          "description": "نُورٌ - (Nūrun) নূর - Light | 35"
+          },
+          {
+          "id": "131",
+          "title": "رَجَاءٌ",
+          "description": "رَجَاءٌ - (Rajāʾun) আশা - Hope | 21"
+          },
+          {
+          "id": "132",
+          "title": "إِذْنٌ",
+          "description": "إِذْنٌ - (Idhnun) অনুমতি - Permission | 22"
+          },
+          {
+          "id": "133",
+          "title": "قُدْرَةٌ",
+          "description": "قُدْرَةٌ - (Qudratun) ক্ষমতা - Power | 24"
+          },
+          {
+          "id": "134",
+          "title": "يَقِينٌ",
+          "description": "يَقِينٌ - (Yaqīnun) দৃঢ় বিশ্বাস - Certainty | 25"
+          },
+          {
+          "id": "135",
+          "title": "فَرِيقٌ",
+          "description": "فَرِيقٌ - (Farīqun) দল - Group | 23"
+          },
+          {
+          "id": "136",
+          "title": "تَوْبَةٌ",
+          "description": "تَوْبَةٌ - (Tawbatun) তওবা - Repentance | 30"
+          },
+          {
+          "id": "137",
+          "title": "فَرْدٌ",
+          "description": "فَرْدٌ - (Fardun) একক - Individual | 22"
+          },
+          {
+          "id": "138",
+          "title": "وَلِيٌّ",
+          "description": "وَلِيٌّ - (Walīyun) অভিভাবক - Guardian | 27"
+          },
+          {
+          "id": "139",
+          "title": "غَفُورٌ",
+          "description": "غَفُورٌ - (Ghafūrun) অতীব ক্ষমাশীল - Forgiving | 32"
+          },
+          {
+          "id": "140",
+          "title": "وَعِيدٌ",
+          "description": "وَعِيدٌ - (Waʿīdun) হুমকি - Threat | 21"
+          },
+          {
+          "id": "141",
+          "title": "رِحْلَةٌ",
+          "description": "رِحْلَةٌ - (Riḥlatun) সফর - Journey | 23"
+          },
+          {
+          "id": "142",
+          "title": "عَدْلٌ",
+          "description": "عَدْلٌ - (ʿAdlun) ন্যায়বিচার - Justice | 28"
+          },
+          {
+          "id": "143",
+          "title": "دَيْنٌ",
+          "description": "دَيْنٌ - (Daynun) ঋণ - Debt | 19"
+          },
+          {
+          "id": "144",
+          "title": "إِبْتِلَاءٌ",
+          "description": "إِبْتِلَاءٌ - (Ibtīlāʾun) পরীক্ষায় ফেলা - Trial | 29"
+          },
+          {
+          "id": "145",
+          "title": "غَيْبٌ",
+          "description": "غَيْبٌ - (Ghaybun) অদৃশ্য - Unseen | 20"
+          },
+          {
+          "id": "146",
+          "title": "جَنَّةٌ",
+          "description": "جَنَّةٌ - (Jannatun) জান্নাত - Paradise | 35"
+          },
+          {
+          "id": "147",
+          "title": "شَرِيكٌ",
+          "description": "شَرِيكٌ - (Sharīkun) অংশীদার - Partner | 25"
+          },
+          {
+          "id": "148",
+          "title": "نَصِيبٌ",
+          "description": "نَصِيبٌ - (Naṣībun) অংশ - Share | 22"
+          },
+          {
+          "id": "149",
+          "title": "وَكِيلٌ",
+          "description": "وَكِيلٌ - (Wakīlun) প্রতিনিধি - Trustee | 26"
+          },
+          {
+          "id": "150",
+          "title": "خَسَارَةٌ",
+          "description": "خَسَارَةٌ - (Khasāratun) ক্ষতি - Loss | 29"
+          },
+          {
+          "id": "151",
+          "title": "مُصِيبَةٌ",
+          "description": "مُصِيبَةٌ - (Muṣībatun) বিপদ - Calamity | 24"
+          },
+          {
+          "id": "152",
+          "title": "بَلَاءٌ",
+          "description": "بَلَاءٌ - (Balāʾun) পরীক্ষায় ফেলা - Affliction | 25"
+          },
+          {
+          "id": "153",
+          "title": "تَكْذِيبٌ",
+          "description": "تَكْذِيبٌ - (Takdhībun) মিথ্যা প্রতিপন্ন করা - Denial | 21"
+          },
+          {
+          "id": "154",
+          "title": "تَحْذِيرٌ",
+          "description": "تَحْذِيرٌ - (Taḥdhīrun) সতর্কতা - Warning | 23"
+          },
+          {
+          "id": "155",
+          "title": "مَغْفِرَةٌ",
+          "description": "مَغْفِرَةٌ - (Maghfiratun) ক্ষমা - Forgiveness | 29"
+          },
+          {
+          "id": "156",
+          "title": "نَصْرٌ",
+          "description": "نَصْرٌ - (Naṣrun) সাহায্য - Help | 22"
+          },
+          {
+          "id": "157",
+          "title": "كَرِيمٌ",
+          "description": "كَرِيمٌ - (Karīmun) মহৎ - Generous | 30"
+          },
+          {
+          "id": "158",
+          "title": "مَكْرٌ",
+          "description": "مَكْرٌ - (Makrun) ধোঁকাবাজি - Deception | 24"
+          },
+          {
+          "id": "159",
+          "title": "ظُلْمٌ",
+          "description": "ظُلْمٌ - (Ẓulm) অবিচার - Injustice | 28"
+          },
+          {
+          "id": "160",
+          "title": "رَحْمَةٌ",
+          "description": "رَحْمَةٌ - (Raḥmatun) করুণা - Mercy | 27"
+          },
+          {
+          "id": "161",
+          "title": "رَسُولٌ",
+          "description": "رَسُولٌ - (Rasūlun) রসূল - Messenger | 31"
+          },
+          {
+          "id": "162",
+          "title": "مَوْقِفٌ",
+          "description": "مَوْقِفٌ - (Mawqifun) অবস্থান - Position | 26"
+          },
+          {
+          "id": "163",
+          "title": "نِعْمَةٌ",
+          "description": "نِعْمَةٌ - (Niʿmatun) অনুগ্রহ - Blessing | 29"
+          },
+          {
+          "id": "164",
+          "title": "مُبِينٌ",
+          "description": "مُبِينٌ - (Mubīnun) সুস্পষ্ট - Clear | 20"
+          },
+          {
+          "id": "165",
+          "title": "بَاطِلٌ",
+          "description": "بَاطِلٌ - (Bāṭilun) মিথ্যা - Falsehood | 21"
+          },
+          {
+          "id": "166",
+          "title": "قَصَصٌ",
+          "description": "قَصَصٌ - (Qaṣaṣun) গল্প - Story | 24"
+          },
+          {
+          "id": "167",
+          "title": "وَاقِعٌ",
+          "description": "وَاقِعٌ - (Wāqiʿun) বাস্তব - Reality | 27"
+          },
+          {
+          "id": "168",
+          "title": "مَوْعِدٌ",
+          "description": "مَوْعِدٌ - (Mawʿidun) প্রতিশ্রুতি - Appointment | 23"
+          },
+          {
+          "id": "169",
+          "title": "عَزِيزٌ",
+          "description": "عَزِيزٌ - (ʿAzīzun) মহামান্য - Mighty | 29"
+          },
+          {
+          "id": "170",
+          "title": "سَرَابٌ",
+          "description": "سَرَابٌ - (Sarābun) মরীচিকা - Mirage | 24"
+          },
+          {
+          "id": "171",
+          "title": "نَفْسٌ",
+          "description": "نَفْسٌ - (Nafsun) প্রাণ - Soul | 21"
+          },
+          {
+          "id": "172",
+          "title": "دَارٌ",
+          "description": "دَارٌ - (Dārun) গৃহ - Abode | 27"
+          },
+          {
+          "id": "173",
+          "title": "شَرٌّ",
+          "description": "شَرٌّ - (Sharrun) মন্দ - Evil | 22"
+          },
+          {
+          "id": "174",
+          "title": "فِتْنَةٌ",
+          "description": "فِتْنَةٌ - (Fitnatun) ফিতনা - Trial/Temptation | 29"
+          },
+          {
+          "id": "175",
+          "title": "طُمَأْنِينَةٌ",
+          "description": "طُمَأْنِينَةٌ - (Ṭumānīnatun) প্রশান্তি - Tranquility | 31"
+          },
+          {
+          "id": "176",
+          "title": "نِسَاءٌ",
+          "description": "نِسَاءٌ - (Nisāʾun) নারীরা - Women | 32"
+          },
+          {
+          "id": "177",
+          "title": "يَوْمٌ",
+          "description": "يَوْمٌ - (Yawm) দিন - Day | 22"
+          },
+          {
+          "id": "178",
+          "title": "ظَلَامٌ",
+          "description": "ظَلَامٌ - (Ẓalām) অন্ধকার - Darkness | 23"
+          },
+          {
+          "id": "179",
+          "title": "دَاعٍ",
+          "description": "دَاعٍ - (Dāʿin) আহ্বানকারী - Caller | 24"
+          },
+          {
+          "id": "180",
+          "title": "فَرَحٌ",
+          "description": "فَرَحٌ - (Faraḥun) আনন্দ - Joy | 21"
+          },
+          {
+          "id": "181",
+          "title": "فَتًى",
+          "description": "فَتًى - (Fatan) যুবক - Young Man | 23"
+          },
+          {
+          "id": "182",
+          "title": "نَهْرٌ",
+          "description": "نَهْرٌ - (Nahrun) নদী - River | 26"
+          },
+          {
+          "id": "183",
+          "title": "صَدْرٌ",
+          "description": "صَدْرٌ - (Ṣadrun) বক্ষ - Chest | 21"
+          },
+          {
+          "id": "184",
+          "title": "ذَكِيٌّ",
+          "description": "ذَكِيٌّ - (Dhakiyyun) বুদ্ধিমান - Intelligent | 28"
+          },
+          {
+          "id": "185",
+          "title": "مُجَاهِدٌ",
+          "description": "مُجَاهِدٌ - (Mujāhidun) মুজাহিদ - Striver (in the path of Allah) | 30"
+          },
+          {
+          "id": "186",
+          "title": "مَسْجِدٌ",
+          "description": "مَسْجِدٌ - (Masjidun) মসজিদ - Mosque | 32"
+          },
+          {
+          "id": "187",
+          "title": "مُلْكٌ",
+          "description": "مُلْكٌ - (Mulk) রাজ্য - Kingdom | 29"
+          },
+          {
+          "id": "188",
+          "title": "مُشْرِكٌ",
+          "description": "مُشْرِكٌ - (Mushrikun) মুশরিক - Polytheist | 30"
+          },
+          {
+          "id": "189",
+          "title": "غَضَبٌ",
+          "description": "غَضَبٌ - (Ghaḍabun) রাগ - Anger | 21"
+          },
+          {
+          "id": "190",
+          "title": "نَصَحَ",
+          "description": "نَصَحَ - (Naṣaḥa) উপদেশ দেওয়া - Advised | 27"
+          },
+          {
+          "id": "191",
+          "title": "عِبَادَةٌ",
+          "description": "عِبَادَةٌ - (ʿIbādah) ইবাদাত - Worship | 29"
+          },
+          {
+          "id": "192",
+          "title": "مُهْتَدٍ",
+          "description": "مُهْتَدٍ - (Muhtadin) পথপ্রাপ্ত - Guided | 28"
+          },
+          {
+          "id": "193",
+          "title": "عَمَلٌ",
+          "description": "عَمَلٌ - (ʿAmalun) কাজ - Action | 24"
+          },
+          {
+          "id": "194",
+          "title": "مُعْجِزَةٌ",
+          "description": "مُعْجِزَةٌ - (Muʿjizah) মুজিজা - Miracle | 31"
+          },
+          {
+          "id": "195",
+          "title": "قُدْرَةٌ",
+          "description": "قُدْرَةٌ - (Qudrah) ক্ষমতা - Power | 23"
+          },
+          {
+          "id": "196",
+          "title": "بَصِيرٌ",
+          "description": "بَصِيرٌ - (Baṣīrun) দৃষ্টিসম্পন্ন - Seeing | 28"
+          },
+          {
+          "id": "197",
+          "title": "فَاسِقٌ",
+          "description": "فَاسِقٌ - (Fāsiqun) পাপাচারী - Sinner | 30"
+          },
+          {
+          "id": "198",
+          "title": "خُسْرٌ",
+          "description": "خُسْرٌ - (Khusrun) ক্ষতি - Loss | 21"
+          },
+          {
+          "id": "199",
+          "title": "مُبْتَلًى",
+          "description": "مُبْتَلًى - (Mubtalā) পরীক্ষায় থাকা - Tested | 27"
+          },
+          {
+          "id": "200",
+          "title": "قِيَامَةٌ",
+          "description": "قِيَامَةٌ - (Qiyāmah) কিয়ামত - Day of Resurrection | 30"
+          },
+          {
+          "id": "201",
+          "title": "صَبْرٌ",
+          "description": "صَبْرٌ - (Ṣabrun) ধৈর্য - Patience | 31"
+          },
+          {
+          "id": "202",
+          "title": "مُرَاقَبَةٌ",
+          "description": "مُرَاقَبَةٌ - (Murāqabah) তদারক - Vigilance | 29"
+          },
+          {
+          "id": "203",
+          "title": "عَادَةٌ",
+          "description": "عَادَةٌ - (ʿĀdah) অভ্যাস - Habit | 24"
+          },
+          {
+          "id": "204",
+          "title": "بَلَغَ",
+          "description": "بَلَغَ - (Balaḡa) পৌঁছানো - Reached | 22"
+          },
+          {
+          "id": "205",
+          "title": "مُؤْمِنٌ",
+          "description": "مُؤْمِنٌ - (Muʾminun) মুমিন - Believer | 30"
+          },
+          {
+          "id": "206",
+          "title": "تَقْوَى",
+          "description": "تَقْوَى - (Taqwā) ধর্মপরায়ণতা - Piety | 28"
+          },
+          {
+          "id": "207",
+          "title": "رَبٌّ",
+          "description": "رَبٌّ - (Rabbun) রব - Lord | 31"
+          },
+          {
+          "id": "208",
+          "title": "خَيرٌ",
+          "description": "خَيرٌ - (Khayrun) ভাল - Goodness | 25"
+          },
+          {
+          "id": "209",
+          "title": "عَلِيمٌ",
+          "description": "عَلِيمٌ - (ʿAlīmun) জ্ঞানী - All-Knowing | 29"
+          },
+          {
+          "id": "210",
+          "title": "كَلَامٌ",
+          "description": "كَلَامٌ - (Kalām) কথা - Speech | 22"
+          },
+          {
+          "id": "211",
+          "title": "فِي",
+          "description": "فِي - (Fī) মধ্যে - In | 30"
+          },
+          {
+          "id": "212",
+          "title": "عَزَّ",
+          "description": "عَزَّ - (ʿAzz) গৌরব - Honor | 24"
+          },
+          {
+          "id": "213",
+          "title": "سُكْرٌ",
+          "description": "سُكْرٌ - (Sukrun) মাতাল অবস্থায় - Intoxication | 21"
+          },
+          {
+          "id": "214",
+          "title": "حَمَدٌ",
+          "description": "حَمَدٌ - (Ḥamād) প্রশংসা - Praise | 26"
+          },
+          {
+          "id": "215",
+          "title": "مَسْأَلَةٌ",
+          "description": "مَسْأَلَةٌ - (Masʾalah) প্রশ্ন - Question | 25"
+          },
+          {
+          "id": "216",
+          "title": "مَخْلُوقٌ",
+          "description": "مَخْلُوقٌ - (Makhlūq) সৃষ্টিসম্পন্ন - Creature | 27"
+          },
+          {
+          "id": "217",
+          "title": "نَفْعٌ",
+          "description": "نَفْعٌ - (Nafʿun) উপকারিতা - Benefit | 29"
+          },
+          {
+          "id": "218",
+          "title": "خَلْقٌ",
+          "description": "خَلْقٌ - (Khalq) সৃষ্টি - Creation | 24"
+          },
+          {
+          "id": "219",
+          "title": "عَظِيمٌ",
+          "description": "عَظِيمٌ - (ʿAẓīm) মহান - Great | 30"
+          },
+          {
+          "id": "220",
+          "title": "خَاتَمَةٌ",
+          "description": "خَاتَمَةٌ - (Khātimah) সমাপ্তি - Conclusion | 26"
+          },
+          {
+          "id": "221",
+          "title": "مَعَصِيَةٌ",
+          "description": "مَعَصِيَةٌ - (Maʿṣiyah) পাপ - Sin | 25"
+          },
+          {
+          "id": "222",
+          "title": "مَخْرَجٌ",
+          "description": "مَخْرَجٌ - (Makhrij) বের হওয়ার স্থান - Exit | 22"
+          },
+          {
+          "id": "223",
+          "title": "مَوْتٌ",
+          "description": "مَوْتٌ - (Mawt) মৃত্যু - Death | 27"
+          },
+          {
+          "id": "224",
+          "title": "حِفْظٌ",
+          "description": "حِفْظٌ - (Ḥifẓun) সংরক্ষণ - Preservation | 24"
+          },
+          {
+          "id": "225",
+          "title": "مَعَانٍ",
+          "description": "مَعَانٍ - (Maʿān) অর্থ - Meanings | 21"
+          },
+          {
+          "id": "226",
+          "title": "بَيِّنَةٌ",
+          "description": "بَيِّنَةٌ - (Bayyinah) প্রমাণ - Evidence | 26"
+          },
+          {
+          "id": "227",
+          "title": "عَالَمٌ",
+          "description": "عَالَمٌ - (ʿĀlam) বিশ্ব - Universe | 29"
+          },
+          {
+          "id": "228",
+          "title": "فَجْرٌ",
+          "description": "فَجْرٌ - (Fajr) ভোর - Dawn | 21"
+          },
+          {
+          "id": "229",
+          "title": "مَقَالَةٌ",
+          "description": "مَقَالَةٌ - (Maqālah) নিবন্ধ - Article | 30"
+          },
+          {
+          "id": "230",
+          "title": "أُمَّةٌ",
+          "description": "أُمَّةٌ - (Ummatun) জাতি - Nation | 32"
+          },
+          {
+          "id": "231",
+          "title": "مَثَلٌ",
+          "description": "مَثَلٌ - (Mathalun) উদাহরণ - Example | 29"
+          },
+          {
+          "id": "232",
+          "title": "مَعْرِفَةٌ",
+          "description": "مَعْرِفَةٌ - (Maʿrifah) জ্ঞান - Knowledge | 25"
+          },
+          {
+          "id": "233",
+          "title": "نَجَاةٌ",
+          "description": "نَجَاةٌ - (Najāt) উদ্ধার - Salvation | 27"
+          },
+          {
+          "id": "234",
+          "title": "وَحْيٌ",
+          "description": "وَحْيٌ - (Waḥy) প্রত্যাদেশ - Revelation | 30"
+          },
+          {
+          "id": "235",
+          "title": "جِهَادٌ",
+          "description": "جِهَادٌ - (Jihād) জিহাদ - Struggle | 29"
+          },
+          {
+          "id": "236",
+          "title": "مَسَاجِدٌ",
+          "description": "مَسَاجِدٌ - (Masājid) মসজিদসমূহ - Mosques | 31"
+          },
+          {
+          "id": "237",
+          "title": "مُهْمَلٌ",
+          "description": "مُهْمَلٌ - (Muḥmal) অবহেলিত - Neglected | 28"
+          },
+          {
+          "id": "238",
+          "title": "بَغْضٌ",
+          "description": "بَغْضٌ - (Baghḍ) ঘৃণা - Hatred | 24"
+          },
+          {
+          "id": "239",
+          "title": "خَوْفٌ",
+          "description": "خَوْفٌ - (Khawf) ভয় - Fear | 26"
+          },
+          {
+          "id": "240",
+          "title": "بِئْرٌ",
+          "description": "بِئْرٌ - (Biʾr) কূপ - Well | 23"
+          },
+          {
+          "id": "241",
+          "title": "مَصيرٌ",
+          "description": "مَصيرٌ - (Maṣīr) গন্তব্য - Destination | 27"
+          },
+          {
+          "id": "242",
+          "title": "وَعَدٌ",
+          "description": "وَعَدٌ - (Waʿd) প্রতিশ্রুতি - Promise | 30"
+          },
+          {
+          "id": "243",
+          "title": "أَحَدٌ",
+          "description": "أَحَدٌ - (Aḥad) এক - One | 21"
+          },
+          {
+          "id": "244",
+          "title": "حَسَدٌ",
+          "description": "حَسَدٌ - (Ḥasad) ঈর্ষা - Envy | 29"
+          },
+          {
+          "id": "245",
+          "title": "فِطْرَةٌ",
+          "description": "فِطْرَةٌ - (Fiṭrah) স্বভাব - Nature | 25"
+          },
+          {
+          "id": "246",
+          "title": "مَلَائِكَةٌ",
+          "description": "مَلَائِكَةٌ - (Malāʾikah) ফেরেশতা - Angels | 32"
+          },
+          {
+          "id": "247",
+          "title": "أَذَانٌ",
+          "description": "أَذَانٌ - (Aẕān) আজান - Call to Prayer | 28"
+          },
+          {
+          "id": "248",
+          "title": "شُرَكَاءٌ",
+          "description": "شُرَكَاءٌ - (Shurakāʾ) অংশীদার - Partners | 30"
+          },
+          {
+          "id": "249",
+          "title": "سَلامٌ",
+          "description": "سَلامٌ - (Salām) শান্তি - Peace | 29"
+          },
+          {
+          "id": "250",
+          "title": "مَلِكٌ",
+          "description": "مَلِكٌ - (Malik) রাজা - King | 32"
+          },
+          {
+          "id": "251",
+          "title": "سَفَرٌ",
+          "description": "سَفَرٌ - (Safar) সফর - Travel | 26"
+          },
+          {
+          "id": "252",
+          "title": "عَائِلَةٌ",
+          "description": "عَائِلَةٌ - (ʿĀʾilah) পরিবার - Family | 25"
+          },
+          {
+          "id": "253",
+          "title": "حَقَّ",
+          "description": "حَقَّ - (Ḥaqq) সত্য - Truth | 30"
+          },
+          {
+          "id": "254",
+          "title": "كَبِيرٌ",
+          "description": "كَبِيرٌ - (Kabīr) বড় - Great | 22"
+          },
+          {
+          "id": "255",
+          "title": "تَسَابَقَ",
+          "description": "تَسَابَقَ - (Tasābaqa) প্রতিযোগিতা করা - Compete | 24"
+          },
+          {
+          "id": "256",
+          "title": "قَضَى",
+          "description": "قَضَى - (Qaḍā) সিদ্ধান্ত নেওয়া - Decide | 25"
+          },
+          {
+          "id": "257",
+          "title": "مُتَّقٍ",
+          "description": "مُتَّقٍ - (Muttāq) ধর্মপরায়ণ - God-Fearing | 31"
+          },
+          {
+          "id": "258",
+          "title": "مُسْتَحَبٌّ",
+          "description": "مُسْتَحَبٌّ - (Mustahabb) প্রিয় - Recommended | 29"
+          },
+          {
+          "id": "259",
+          "title": "فِي",
+          "description": "فِي - (Fī) মধ্যে - Inside | 31"
+          },
+          {
+          "id": "260",
+          "title": "مُصِيبَةٌ",
+          "description": "مُصِيبَةٌ - (Muṣībah) বিপদ - Calamity | 28"
+          },
+          {
+          "id": "261",
+          "title": "خَيْرٌ",
+          "description": "خَيْرٌ - (Khayr) কল্যাণ - Goodness | 25"
+          },
+          {
+          "id": "262",
+          "title": "إيمَانٌ",
+          "description": "إيمَانٌ - (Īmān) বিশ্বাস - Faith | 30"
+          },
+          {
+          "id": "263",
+          "title": "مَشْرُوعٌ",
+          "description": "مَشْرُوعٌ - (Mashrūʿ) প্রকল্প - Project | 26"
+          },
+          {
+          "id": "264",
+          "title": "عَلَامَةٌ",
+          "description": "عَلَامَةٌ - (ʿAlāmah) চিহ্ন - Sign | 29"
+          },
+          {
+          "id": "265",
+          "title": "مَكْتُوبٌ",
+          "description": "مَكْتُوبٌ - (Maktūb) লিখিত - Written | 30"
+          },
+          {
+          "id": "266",
+          "title": "حَاسَدٌ",
+          "description": "حَاسَدٌ - (Ḥāsid) ঈর্ষাকারী - Jealous | 24"
+          },
+          {
+          "id": "267",
+          "title": "مَسْلَكٌ",
+          "description": "مَسْلَكٌ - (Maslak) পথ - Path | 22"
+          },
+          {
+          "id": "268",
+          "title": "عَذَابٌ",
+          "description": "عَذَابٌ - (ʿAḏāb) শাস্তি - Punishment | 28"
+          },
+          {
+          "id": "269",
+          "title": "مَعَايِشٌ",
+          "description": "مَعَايِشٌ - (Maʿāyish) জীবিকা - Livelihoods | 30"
+          },
+          {
+          "id": "270",
+          "title": "فَضْلٌ",
+          "description": "فَضْلٌ - (Faḍl) অনুগ্রহ - Grace | 31"
+          },
+          {
+          "id": "271",
+          "title": "مُتَعَلِّمٌ",
+          "description": "مُتَعَلِّمٌ - (Mutʿallim) শিক্ষার্থী - Learner | 29"
+          },
+          {
+          "id": "272",
+          "title": "عَدْلٌ",
+          "description": "عَدْلٌ - (ʿAdl) ন্যায় - Justice | 30"
+          },
+          {
+          "id": "273",
+          "title": "خَالِصٌ",
+          "description": "خَالِصٌ - (Khāliṣ) বিশুদ্ধ - Pure | 29"
+          },
+          {
+          "id": "274",
+          "title": "مَكَانَةٌ",
+          "description": "مَكَانَةٌ - (Makānah) অবস্থান - Position | 25"
+          },
+          {
+          "id": "275",
+          "title": "أَرْضٌ",
+          "description": "أَرْضٌ - (Arḍ) জমি - Land | 28"
+          },
+          {
+          "id": "276",
+          "title": "قَوِيٌّ",
+          "description": "قَوِيٌّ - (Qawī) শক্তিশালী - Strong | 30"
+          },
+          {
+          "id": "277",
+          "title": "حَقَّ",
+          "description": "حَقَّ - (Ḥaqq) সত্য - Right | 29"
+          },
+          {
+          "id": "278",
+          "title": "مَغْفِرَةٌ",
+          "description": "مَغْفِرَةٌ - (Maghfirah) মাফ - Forgiveness | 30"
+          },
+          {
+          "id": "279",
+          "title": "صُورَةٌ",
+          "description": "صُورَةٌ - (Ṣūrah) ছবি - Picture | 31"
+          },
+          {
+          "id": "280",
+          "title": "خَطِيئَةٌ",
+          "description": "خَطِيئَةٌ - (Khaṭīʾah) গুনাহ - Sin | 26"
+          },
+          {
+          "id": "281",
+          "title": "مَكْتُوبَةٌ",
+          "description": "مَكْتُوبَةٌ - (Maktūbah) লিখিত - Written | 27"
+          },
+          {
+          "id": "282",
+          "title": "مَعْرُوفٌ",
+          "description": "مَعْرُوفٌ - (Maʿrūf) ভাল কাজ - Good Deed | 30"
+          },
+          {
+          "id": "283",
+          "title": "فَتْحٌ",
+          "description": "فَتْحٌ - (Fath) বিজয় - Victory | 31"
+          },
+          {
+          "id": "284",
+          "title": "كَمَالٌ",
+          "description": "كَمَالٌ - (Kamāl) সম্পূর্ণতা - Perfection | 27"
+          },
+          {
+          "id": "285",
+          "title": "حَمْدٌ",
+          "description": "حَمْدٌ - (Ḥamd) প্রশংসা - Praise | 30"
+          },
+          {
+          "id": "286",
+          "title": "حَقِيقَةٌ",
+          "description": "حَقِيقَةٌ - (Ḥaqīqah) বাস্তবতা - Reality | 31"
+          },
+          {
+          "id": "287",
+          "title": "مُرَاقَبَةٌ",
+          "description": "مُرَاقَبَةٌ - (Murāqabah) তত্ত্বাবধান - Supervision | 30"
+          },
+          {
+          "id": "288",
+          "title": "فَوْزٌ",
+          "description": "فَوْزٌ - (Fawz) জয় - Victory | 29"
+          },
+          {
+          "id": "289",
+          "title": "قَتَلَ",
+          "description": "قَتَلَ - (Qatal) হত্যা করা - Kill | 29"
+          },
+          {
+          "id": "290",
+          "title": "حَسَنٌ",
+          "description": "حَسَنٌ - (Ḥasan) সুন্দর - Beautiful | 30"
+          },
+          {
+          "id": "291",
+          "title": "قَضَى",
+          "description": "قَضَى - (Qaḍā) শেষ করা - End | 29"
+          },
+          {
+          "id": "292",
+          "title": "حَدَثَ",
+          "description": "حَدَثَ - (Ḥadatha) ঘটতে - Happen | 29"
+          },
+          {
+          "id": "293",
+          "title": "رَحْمَةٌ",
+          "description": "رَحْمَةٌ - (Raḥmah) দয়া - Mercy | 30"
+          },
+          {
+          "id": "294",
+          "title": "مَكْرٌ",
+          "description": "مَكْرٌ - (Makr) চতুরতা - Cunning | 28"
+          },
+          {
+          "id": "295",
+          "title": "بَلَاءٌ",
+          "description": "بَلَاءٌ - (Balāʾ) বিপদ - Affliction | 28"
+          },
+          {
+          "id": "296",
+          "title": "شَكْرٌ",
+          "description": "شَكْرٌ - (Shukr) কৃতজ্ঞতা - Gratitude | 31"
+          },
+          {
+          "id": "297",
+          "title": "عِبَادَةٌ",
+          "description": "عِبَادَةٌ - (ʿIbādah) এবাদত - Worship | 29"
+          },
+          {
+          "id": "298",
+          "title": "مَنْصَبٌ",
+          "description": "مَنْصَبٌ - (Manṣab) পদ - Position | 30"
+          },
+          {
+          "id": "299",
+          "title": "نُورٌ",
+          "description": "نُورٌ - (Nūr) আলো - Light | 29"
+          },
+          {
+          "id": "300",
+          "title": "شَكَوَى",
+          "description": "شَكَوَى - (Shakawā) অভিযোগ - Complaint | 28"
+          }
+      ]
+    }
+]
